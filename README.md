@@ -7,6 +7,7 @@
 * Wikimedia
 * The Guardian
 * The Smithsonian
+
 and set it as the wallpaper of your desktop. Windows, GNOME 3 and Plasma 5 desktops are supported.
 
 ## Requirements
