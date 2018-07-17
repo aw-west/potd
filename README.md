@@ -2,14 +2,16 @@
 
 ## Description
 "Picture of the Day" is a Python 3 script that downloads the photo of the day from:
--National Geographic
--Bing
--Wikimedia
--The Guardian
+* National Geographic
+* Bing
+* Wikimedia
+* The Guardian
+* The Smithsonian
 and set it as the wallpaper of your desktop. Windows, GNOME 3 and Plasma 5 desktops are supported.
 
 ## Requirements
 You need Python 3 and some packages, namely BeautifulSoup 4 and lxml.
+
 In order to install the required packages, run:
 ```pip install bs4 lxml```
 
@@ -17,16 +19,18 @@ In order to install the required packages, run:
 Call the script:
 
 ```
-python natgeo.py --site ng
+python potd.py --site ng
 ```
 
 to download the Photo of the Day from the National Geographic website and set it as the wallpaper of your desktop.
 
 As the argument to `--site`, you can use
-1. `ng` for National Geographic
-2. `bing` for Bing
-3. `guardian` for The Guardian
-4. `wiki` for Wikimedia
+* `ng` for National Geographic
+* `bing` for Bing
+* `guardian` for The Guardian
+* `wiki` for Wikimedia
+* `smith` for The Smithsonian
+* `all` for all of the above in one call of the script
 
 ## Running at startup
 
