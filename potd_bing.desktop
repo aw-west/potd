@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/raffaele/anaconda3/bin/python /media/raffaele/DATA/data/progetti_miei/natgeo-wallpaper/natgeo.py --site=bing
+Hidden=false
+X-GNOME-Autostart-enabled=true
+Name=natgeo
+Comment=Download the picture of the day from various site and set it as the wallpaper
+Terminal=true
+Name=natgeo_bing
