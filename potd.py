@@ -99,7 +99,9 @@ def getSmithLink(out_file):
     #Download web page
     print("Downloading Smithsonian webpage...")
     r = requests.get('https://www.smithsonianmag.com/photocontest/photo-of-the-day/'+str(datetime.datetime.now().date()))    
-    assert(r.status_code == 200)
+    if(r.status_code != 200):
+        print("ERROR: no image of the day found for Smithsonian")
+        return None
     #get binary response content
     soup = BeautifulSoup(r.content,"lxml")    
     div_item = soup.find("div",class_="photo-contest-detail-image")    
@@ -373,9 +375,11 @@ if __name__ == "__main__":
         print("Entering loop....")
         sch = sched.scheduler(time.time, time.sleep)
         next_file = 0
-        filelist = [f for f in os.listdir(img_dir) if os.path.isfile(os.path.join(img_dir, f)) and os.path.join(img_dir, f)[0:7]==str(datetime.datetime.now().date())]
+        datestr = str(datetime.datetime.now().date()).replace("-","")
+        print("datestr="+datestr)
+        filelist = [f for f in os.listdir(img_dir) if (os.path.isfile(os.path.join(img_dir, f)) and f[0:8]==datestr)]
         print("File list is:")
-        print(f+"\n" for f in filelist)
+        print(*filelist, sep='\n')
         pos_args=(env, filelist, next_file, sch, args.period, img_dir)
         #scheduler.enter(delay, priority, action, argument=(), kwargs={})
         # Call it the first time immediately (period=0)
