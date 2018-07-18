@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#nat-geo-pod-wallpaper: Download National Geographics photo of the day and set it as wallpaper of your Windows desktop
+#potd: Download the Photo of the Day from various websites and set it as wallpaper of your desktop
 #Copyright (C) 2017 Raffaele Mancuso
 
 #This program is free software: you can redistribute it and/or modify
@@ -373,14 +373,16 @@ if __name__ == "__main__":
         print("Entering loop....")
         sch = sched.scheduler(time.time, time.sleep)
         next_file = 0
-        filelist = [f for f in os.listdir(img_dir) if os.path.isfile(os.path.join(img_dir, f))]
+        filelist = [f for f in os.listdir(img_dir) if os.path.isfile(os.path.join(img_dir, f)) and os.path.join(img_dir, f)[0:7]==str(datetime.datetime.now().date())]
+        print("File list is:")
+        print(f+"\n" for f in filelist)
         pos_args=(env, filelist, next_file, sch, args.period, img_dir)
         #scheduler.enter(delay, priority, action, argument=(), kwargs={})
         # Call it the first time immediately (period=0)
         sch.enter(0, 1, changeWallpaperPeriodically, argument=pos_args)
         sch.run()
         while True:
-            True
+            time.sleep(args.period*100)
             
     else:
         if spec_path is None:
