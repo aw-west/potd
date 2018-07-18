@@ -33,23 +33,7 @@ import subprocess
 from enum import Enum, unique, auto
 import sched
 import time
-
-@unique
-class ENV(Enum):
-    WIN = auto()
-    GNOME3 = auto()
-    PLASMA5 = auto()
-    AUTODETECT = auto()
-
-def defineEnvironment():
-    if os.name == 'nt':
-        env = ENV.WIN
-    elif os.name == 'posix':
-        env = ENV.PLASMA5 #TODO: discriminate among POSIX environments
-    else:
-        print("ERROR: Environment not recognized")
-        exit()
-    return env
+import deskenv
 
 # Set wallpaper on PLASMA 5 desktop
 def setWallpaperPlasma5(image_file):
@@ -295,9 +279,9 @@ def changeWallpaperPeriodically(env, filelist, next_file, sch, period, img_dir):
     sch.enter(period, priority, changeWallpaperPeriodically, argument=pos_args)
     
 def getOutputDir(env):
-    if env in [ENV.GNOME3, ENV.PLASMA5]:
+    if env in ["gnome", "kde"]:
         img_dir = os.path.expandvars("$HOME/.potd")
-    elif env==ENV.WIN:
+    elif env=="windows":
         img_dir = os.path.expandvars("%HOMEPATH%/Pictures/potd")
     else:
         raise Exception("Environment not implemented")
@@ -309,12 +293,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Download the Photo of the Day of various sites and set it as the wallpaper of your desktop.')
     parser.add_argument('--site', choices=['ng', 'bing', 'wiki', 'guardian','nasa', 'smith', 'all'], help='The website from which to download Photo of the Day.')
     parser.add_argument('--loop', action='store_true', default=False, help='Changes screenshot every x seconds.')
-    parser.add_argument('--debug', action='store_true', default=False, help='More logging.')
+    parser.add_argument('--debug', action='store_true', default=False, help=argparse.SUPPRESS)
     parser.add_argument('--period', type=int, default=60, help='Changes screenshot every x seconds.')
     args = parser.parse_args()
 
     # Generate file paths
-    env = defineEnvironment()
+    env = deskenv.get_desktop_environment()
     # name of the output image file
     img_dir = getOutputDir(env)
     img_filename = str(datetime.datetime.now().date()).replace("-","")
