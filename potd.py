@@ -309,6 +309,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Download the Photo of the Day of various sites and set it as the wallpaper of your desktop.')
     parser.add_argument('--site', choices=['ng', 'bing', 'wiki', 'guardian','nasa', 'smith', 'all'], help='The website from which to download Photo of the Day.')
     parser.add_argument('--loop', action='store_true', default=False, help='Changes screenshot every x seconds.')
+    parser.add_argument('--debug', action='store_true', default=False, help='More logging.')
     parser.add_argument('--period', type=int, default=60, help='Changes screenshot every x seconds.')
     args = parser.parse_args()
 
@@ -376,10 +377,12 @@ if __name__ == "__main__":
         sch = sched.scheduler(time.time, time.sleep)
         next_file = 0
         datestr = str(datetime.datetime.now().date()).replace("-","")
-        print("datestr="+datestr)
+        if args.debug:
+            print("datestr="+datestr)
         filelist = [f for f in os.listdir(img_dir) if (os.path.isfile(os.path.join(img_dir, f)) and f[0:8]==datestr)]
-        print("File list is:")
-        print(*filelist, sep='\n')
+        if args.debug:
+            print("File list is:")
+            print(*filelist, sep='\n')
         pos_args=(env, filelist, next_file, sch, args.period, img_dir)
         #scheduler.enter(delay, priority, action, argument=(), kwargs={})
         # Call it the first time immediately (period=0)
