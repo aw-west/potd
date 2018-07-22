@@ -1,4 +1,5 @@
 import sys
+import os
 
 def get_desktop_environment():
     #From http://stackoverflow.com/questions/2035657/what-is-my-current-desktop-environment

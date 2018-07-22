@@ -34,6 +34,7 @@ from enum import Enum, unique, auto
 import sched
 import time
 import deskenv
+import os
 
 # Set wallpaper on PLASMA 5 desktop
 def setWallpaperPlasma5(image_file):
@@ -52,7 +53,7 @@ def setWallpaperPlasma5(image_file):
     plasma.evaluateScript(jscript)
     
 # Set wallpaper on MAC OSX desktop (untested) (https://stackoverflow.com/questions/431205/how-can-i-programmatically-change-the-background-in-mac-os-x)
-def setWallpaperWindows(image_file):
+def setWallpaperMac(image_file):
     from appscript import app, mactypes
     app('Finder').desktop_picture.set(mactypes.File(image_file))
 
@@ -257,11 +258,11 @@ def getMetadata(json_path):
     
 def changeWallpaper(env, img_path):
     print("changeWallpaper: changing wallpaper to '{}'".format(img_path))
-    if env == ENV.GNOME3:
+    if env == "gnome":
         setWallpaperGnome3(img_path)
-    elif env == ENV.WIN:
+    elif env == "windows":
         setWallpaperWindows(img_path)
-    elif env == ENV.PLASMA5:
+    elif env == "kde":
         setWallpaperPlasma5(img_path)
     else:
         print("ERROR: Platform not implemented yet")
