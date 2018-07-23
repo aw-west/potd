@@ -26,22 +26,21 @@ In order to install the required packages, run:
   * `wiki` for Wikimedia
   * `smith` for The Smithsonian
   * `all` for all of the above in one call of the script
-
 * The `--loop` option uses the downloaded photo of the days to set the wallpaper of your desktop, switching periodically and automatically among the downloaded photos of the day.
 * You can use the `--period` option to set the number of seconds after which to switch to another wallpaper.
 
 ## Examples
 * `python potd.py --site ng`
-
 Download the Photo of the Day from the National Geographic website and set it as the wallpaper of your desktop.
 
 * `python potd.py --site all --loop --period 10`
-
-Download the Photo of the Day from all the supported websites and switch among them eery 10 seconds.
+Download the Photo of the Day from all the supported websites and switch among them every 10 seconds.
 
 ## Running at startup
 
 You can set the script to run at startup. The script will check if today it has already downloaded a picture. If so, it won't download it again.
+
+### Windows
 
 On Windows, create a link in the folder `C:\Users\<your_username>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`. 
 You can open this folder also by pressing `<windows key>+R` to open the "Run" dialog, type `shell:startup` in the textbox and press "Run".
