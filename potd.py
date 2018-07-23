@@ -34,6 +34,7 @@ from enum import Enum, unique, auto
 import sched
 import time
 import deskenv
+import os
 
 # Set wallpaper on PLASMA 5 desktop
 def setWallpaperPlasma5(image_file):
@@ -52,7 +53,7 @@ def setWallpaperPlasma5(image_file):
     plasma.evaluateScript(jscript)
     
 # Set wallpaper on MAC OSX desktop (untested) (https://stackoverflow.com/questions/431205/how-can-i-programmatically-change-the-background-in-mac-os-x)
-def setWallpaperWindows(image_file):
+def setWallpaperMac(image_file):
     from appscript import app, mactypes
     app('Finder').desktop_picture.set(mactypes.File(image_file))
 
