@@ -257,11 +257,11 @@ def getMetadata(json_path):
     
 def changeWallpaper(env, img_path):
     print("changeWallpaper: changing wallpaper to '{}'".format(img_path))
-    if env == ENV.GNOME3:
+    if env == "gnome":
         setWallpaperGnome3(img_path)
-    elif env == ENV.WIN:
+    elif env == "windows":
         setWallpaperWindows(img_path)
-    elif env == ENV.PLASMA5:
+    elif env == "kde":
         setWallpaperPlasma5(img_path)
     else:
         print("ERROR: Platform not implemented yet")
