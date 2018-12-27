@@ -83,7 +83,7 @@ def downloadFile(url, output_filepath):
 def getSmithLink(out_file):    
     #Download web page
     print("Downloading Smithsonian webpage...")
-    r = requests.get('https://www.smithsonianmag.com/photocontest/photo-of-the-day/'+str(datetime.datetime.now().date()))    
+    r = requests.get('https://www.smithsonianmag.com/photocontest/photo-of-the-day/')    
     if(r.status_code != 200):
         print("ERROR: no image of the day found for Smithsonian")
         return None
