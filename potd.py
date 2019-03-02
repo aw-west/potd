@@ -147,12 +147,12 @@ def getBingLink(out_file):
     r = requests.get('http://www.bing.com')    
     if(r.status_code != 200):
         print("ERROR: status_code: "+r.status_code)
-        sys.exit()    
+        sys.exit()
     #get text
     cont = r.text
     to_find = "g_img={url:"
     pos = cont.find(to_find)
-    pos2 = cont.find(",",pos)
+    pos2 = min(cont.find(",",pos),  cont.find("};",pos))
     link = cont[pos+len(to_find)+1:pos2].replace('"','').replace("'","")
     img_link = "http://www.bing.com"+link
     downloadFile(img_link, out_file)
