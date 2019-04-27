@@ -35,6 +35,7 @@ import sched
 import time
 import deskenv
 import os
+import re
 
 # Set wallpaper on PLASMA 5 desktop
 def setWallpaperPlasma5(image_file):
@@ -71,7 +72,13 @@ def setWallpaperGnome3(image_file):
     print("COMMAND: "+command)
     subprocess.run(command.split())
 
-
+#Set wallpaper on XFCE4 desktop
+def setWallpaperXfce4(image_file):
+    image_file = os.path.abspath(image_file)
+    command = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "./change_xfce4_wallpaper.sh") + " " + image_file
+    print("COMMAND: "+command)
+    subprocess.run(command.split())
+    
 def downloadFile(url, output_filepath):
     print("Downloading "+url+" into "+output_filepath)
     r = requests.get(url)
@@ -144,16 +151,21 @@ def getNGLink(out_file):
 def getBingLink(out_file):
     #Download web page
     print("Downloading Bing webpage...")
-    r = requests.get('http://www.bing.com')    
+    r = requests.get('https://www.bing.com', stream=True)    
     if(r.status_code != 200):
         print("ERROR: status_code: "+r.status_code)
         sys.exit()    
     #get text
     cont = r.text
-    to_find = "g_img={url:"
-    pos = cont.find(to_find)
-    pos2 = cont.find(",",pos)
-    link = cont[pos+len(to_find)+1:pos2].replace('"','').replace("'","")
+    print("Content length: "+str(len(cont)))
+    
+    r.raw.decode_content = True
+    with open("bing.html","wb") as fileh:
+        fileh.write(r.content)
+    
+    #re.match -> only matches AT THE BEGINNIGN OF THE STRING
+    # *? is the non-greedy version
+    link = re.search('g_img={url:"((.*?)\.(jpg|png))(.*)"};', cont).group(1)
     img_link = "http://www.bing.com"+link
     downloadFile(img_link, out_file)
     return out_file
@@ -264,8 +276,10 @@ def changeWallpaper(env, img_path):
         setWallpaperWindows(img_path)
     elif env == "kde":
         setWallpaperPlasma5(img_path)
+    elif env == "xfce4":
+        setWallpaperXfce4(img_path)
     else:
-        print("ERROR: Platform not implemented yet")
+        print("Error in changeWallpaper(): Platform '{}' not implemented yet".format(env))
 
 def changeWallpaperPeriodically(env, filelist, next_file, sch, period, img_dir): 
     # do your stuff
@@ -280,20 +294,23 @@ def changeWallpaperPeriodically(env, filelist, next_file, sch, period, img_dir):
     sch.enter(period, priority, changeWallpaperPeriodically, argument=pos_args)
     
 def getOutputDir(env):
-    if env in ["gnome", "kde"]:
+    if env in ["gnome", "kde", "xfce4"]:
         img_dir = os.path.expandvars("$HOME/.potd")
     elif env=="windows":
-        img_dir = os.path.expandvars("%HOMEPATH%/Pictures/potd")
+        #img_dir = os.path.expandvars("%HOMEPATH%/Pictures/potd")
+        img_dir = os.path.expandvars("%USERPROFILE%/Pictures/potd")
+        # Get absolute path, otherwise it expands to \Users\...
+        img_dir = os.path.abspath(img_dir)
     else:
-        raise Exception("Environment not implemented")
+        raise Exception("Environment {} not implemented".format(env))
     os.makedirs(img_dir, exist_ok=True)
     return img_dir
         
 if __name__ == "__main__":  
 
     parser = argparse.ArgumentParser(description='Download the Photo of the Day of various sites and set it as the wallpaper of your desktop.')
-    parser.add_argument('--site', choices=['ng', 'bing', 'wiki', 'guardian','nasa', 'smith', 'all'], help='The website from which to download Photo of the Day.')
-    parser.add_argument('--loop', action='store_true', default=False, help='Changes screenshot every x seconds.')
+    parser.add_argument('--site', choices=['ng', 'bing', 'wiki', 'guardian','nasa', 'smith', 'all'], help='The website from which to download Photo of the Day.', default="all")
+    parser.add_argument('--loop', action='store_true', default=True, help='Changes screenshot every x seconds.')
     parser.add_argument('--debug', action='store_true', default=False, help=argparse.SUPPRESS)
     parser.add_argument('--period', type=int, default=60, help='Changes screenshot every x seconds.')
     args = parser.parse_args()
@@ -311,42 +328,42 @@ if __name__ == "__main__":
     spec_path = None
     
     if args.site in ['ng', 'all']:
-        spec_path = img_path+"ng.jpg"
+        spec_path = os.path.join(img_path+"ng.jpg")
         if not os.path.isfile(spec_path):
             getNGLink(spec_path)
         else:
             print("National Geographic wallpaper already downloaded")
             
     if args.site in ['bing', 'all']:
-        spec_path = img_path+"bing.jpg"
+        spec_path = os.path.join(img_path+"bing.jpg")
         if not os.path.isfile(spec_path):
             getBingLink(spec_path)    
         else:
             print("Bing wallpaper already downloaded")
             
     if args.site in ['wiki', 'all']:
-        spec_path = img_path+"wiki.jpg"
+        spec_path = os.path.join(img_path+"wiki.jpg")
         if not os.path.isfile(spec_path):
             getWikiMediaLink(spec_path)
         else:
             print("Wikimedia wallpaper already downloaded")
         
     if args.site in ['guardian', 'all']:
-        spec_path = img_path+"guardian.jpg"
+        spec_path = os.path.join(img_path+"guardian.jpg")
         if not os.path.isfile(spec_path):
             getGuardianLink(spec_path)
         else:
             print("The Guardian wallpaper already downloaded")
         
     if args.site in ['nasa', 'all']:
-        spec_path = img_path+"nasa.jpg"
+        spec_path = os.path.join(img_path+"nasa.jpg")
         if not os.path.isfile(spec_path):
             getNASALink(spec_path)
         else:
             print("NASA wallpaper already downloaded")
     
     if args.site in ['smith', 'all']:
-        spec_path = img_path+"smith.jpg"
+        spec_path = os.path.join(img_path+"smith.jpg")
         if not os.path.isfile(spec_path):
             getSmithLink(spec_path)
         else:
