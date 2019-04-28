@@ -156,13 +156,7 @@ def getBingLink(out_file):
         print("ERROR: status_code: "+r.status_code)
         sys.exit()    
     #get text
-    cont = r.text
-    print("Content length: "+str(len(cont)))
-    
-    r.raw.decode_content = True
-    with open("bing.html","wb") as fileh:
-        fileh.write(r.content)
-    
+    cont = r.text    
     #re.match -> only matches AT THE BEGINNIGN OF THE STRING
     # *? is the non-greedy version
     link = re.search('g_img={url:"((.*?)\.(jpg|png))(.*)"};', cont).group(1)
