@@ -113,5 +113,5 @@ def main(ids, save):
 
 if __name__ == '__main__':
 	# ids = ['bing', 'guardian', 'nasa', 'ng', 'smith', 'wiki']
-	ids = ['bing', 'nasa', 'ng', 'smith', 'wiki']
+	ids = ['bing', 'ng', 'smith', 'wiki']
 	main(ids, save=True)
