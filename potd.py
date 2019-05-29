@@ -1,29 +1,30 @@
 # Picture of the day
 #
 # Description:
-#   potd but downloading and sorting only.
+#   potd but windows, downloads and sorts.
 #
 # Version:
 #   v1.0
 # Issues:
 #   pyinstaller set publisher
-#   .jpg is good enough
+#   is .jpg good enough
 #   installer creates shell:startup and sets desktop-wallpaper
 
 import requests
 from bs4 import BeautifulSoup
 import time
 import os
+import ctypes
 
 def download(url, path):
-	print('    downloading: ' + url + "\n           into: " + path)
+	print(f'    downloading: {url}\n           into: {path}')
 	r = requests.get(url)
 	assert(r.status_code is 200)
 	with open(path, 'wb') as f:
 		[f.write(chunk) for chunk in r]
-	return
+	return None
 
-def geturl(id):
+def get_url(id):
 	if id == 'bing':
 		print('Bing')
 		url = 'http://www.bing.com'
@@ -41,7 +42,7 @@ def geturl(id):
 		r = requests.get(url)
 		soup = BeautifulSoup(r.content, 'lxml')
 		assert(r.status_code is 200)
-		img_url = soup.select("div.immersive-main-media.immersive-main-media__gallery")[0].find_all("source")[0]['srcset'].rsplit(',')[1].strip().split(' ')[0]
+		img_url = soup.select("div.immersive-main-media.immersive-main-media__gallery")[0].find_all("source")[0]['srcset'].rsplit(',')[-1].strip().split(' ')[0]
 		assert(img_url is not None)
 	elif id == 'nasa':
 		print('NASA')
@@ -78,40 +79,46 @@ def geturl(id):
 		print(f'WarningWebID:  {id} not recognised.')
 	return img_url
 
-def oldimg(id, listdir, path, today, hist, save):
-	print('    old image sorting')
-	for el in listdir:
-		if id in el:
-			if save and not os.path.isfile(path+hist+el):
-				os.rename(path+today+el, path+hist+el)
+def sorting(id, img1, listdir_id, today, hist, save):
+	print(f'        sorting: {listdir_id}')
+	for img2 in listdir_id:
+		if os.path.isfile(today+img1) and os.path.isfile(today+img2):
+			if save and not open(today+img1,'rb').read()==open(today+img2,'rb').read():
+				os.rename(today+img2, hist+img2)
 			else:
-				os.remove(path+today+el)
-			listdir.remove(el)
-	return listdir
+				os.remove(today+img2)
+	return None
 
-def setslideshow(path, today):
-	shell = r'''
-	ctypes.windll.uder32.SystemParametersInfoW(20, 0, path+today, 0)
-	'''
-	return
+def set_wallpaper(path):
+	# Windows Only
+	ctypes.windll.user32.SystemParametersInfoW(20, 0, path, 0)
+	return None
 
 def main(ids, save):
 	path = os.getcwd().replace('\\','/')
-	today = '/today/'
-	if not os.path.isdir(path+today): os.mkdir(path+today)
-	hist = '/history/'
-	if not os.path.isdir(path+hist): os.mkdir(path+hist)
+	today, hist = path+'/today/', path+'/history/'
+	if not os.path.isdir(today): os.mkdir(today)
+	if not os.path.isdir(hist): os.mkdir(hist)
 	date = time.strftime('%Y-%m-%d ', time.gmtime())
-	listdir = os.listdir(path+today)
+
+	listdir = os.listdir(today)
 	for id in ids:
+		listdir_id = listdir if len(listdir)==0 else listdir[(id in el for el in listdir)]
 		img_name = date+id+'.jpg'
-		if img_name not in listdir:
-			img_url = geturl(id)
-			download(img_url, path+today+img_name)
-			oldimg(id, listdir, path, today, hist, save)
-	return
+		if img_name not in listdir_id:
+			img_url = get_url(id)
+			download(img_url, today+img_name)
+			sorting(id, img_name, listdir_id, today, hist, save)
+	set_wallpaper(today)
+	return None
 
 if __name__ == '__main__':
-	# ids = ['bing', 'guardian', 'nasa', 'ng', 'smith', 'wiki']
-	ids = ['bing', 'ng', 'smith', 'wiki']
+	ids = [
+		'bing',
+		'guardian',
+		'nasa',
+		'ng',
+		'smith',
+		'wiki'
+		]
 	main(ids, save=True)

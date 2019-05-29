@@ -1,4 +1,7 @@
 cd %~dp0
+
+del /q /s potd.exe
+
 pyinstaller --onefile potd.py
 
 move /y .\dist\potd.exe potd.exe
