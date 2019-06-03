@@ -103,7 +103,7 @@ def main(ids, save):
 
 	listdir = os.listdir(today)
 	for id in ids:
-		listdir_id = listdir if len(listdir)==0 else listdir[(id in el for el in listdir)]
+		listdir_id = list(filter(lambda el: id in el, listdir))
 		img_name = date+id+'.jpg'
 		if img_name not in listdir_id:
 			img_url = get_url(id)
