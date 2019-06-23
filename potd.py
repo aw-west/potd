@@ -192,7 +192,7 @@ def getGuardianLink(out_file):
     #get binary response content
     soup_potd = BeautifulSoup(r.content,"lxml")   
     
-    img_el = soup_potd.select("div.immersive-main-media.immersive-main-media__gallery") #select() returns a list
+    img_el = soup_potd.select("div.u-responsive-ratio") #select() returns a list
     assert(isinstance(img_el, list))
     assert(len(img_el) == 1)
     
