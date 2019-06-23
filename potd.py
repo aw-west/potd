@@ -17,7 +17,7 @@ import os
 import ctypes
 
 def download(url, path):
-	print(f'    downloading: {url}\n           into: {path}')
+	print(f'\tdownloading: {url}\n\t\tinto: {path}')
 	r = requests.get(url)
 	assert(r.status_code is 200)
 	with open(path, 'wb') as f:
@@ -30,7 +30,7 @@ def get_url(id):
 		url = 'http://www.bing.com'
 		r = requests.get(url)
 		assert(r.status_code is 200)
-		img_url = url+r.text.rsplit('g_img={url:',1)[1].split('};', 1)[0].split('\\',1)[0].replace('"','').replace("'",'').replace(' ','')
+		img_url = url+r.text.rsplit('g_img={url:',1)[1].split('};',1)[0].split('\\',1)[0].replace('"','').replace("'",'').replace(' ','')
 		assert(img_url is not None)
 	elif id == 'guardian':
 		print('Guardian')
@@ -40,9 +40,9 @@ def get_url(id):
 		soup = BeautifulSoup(r.content, 'lxml')
 		url = soup.find("div", {"data-id":"uk-alpha/special-other/special-story"}).find("a", {"class":"js-headline-text"})['href']
 		r = requests.get(url)
-		soup = BeautifulSoup(r.content, 'lxml')
 		assert(r.status_code is 200)
-		img_url = soup.select("div.immersive-main-media.immersive-main-media__gallery")[0].find_all("source")[0]['srcset'].rsplit(',')[-1].strip().split(' ')[0]
+		soup = BeautifulSoup(r.content, 'lxml')
+		img_url = soup.select("div.u-responsive-ratio")[0].find_all("source")[0]['srcset'].rsplit(',')[-1].strip().split(' ')[0]
 		assert(img_url is not None)
 	elif id == 'nasa':
 		print('NASA')
@@ -57,7 +57,7 @@ def get_url(id):
 		r = requests.get(url)
 		assert(r.status_code is 200)
 		soup = BeautifulSoup(r.content, 'lxml')
-		img_url = soup.find('meta', {'property':'og:image'})['content']
+		img_url = soup.find('meta',{'property':'og:image'})['content']
 		assert(img_url is not None)
 	elif id == 'smith':
 		print('Smithsonian')
@@ -65,7 +65,7 @@ def get_url(id):
 		r = requests.get(url)
 		assert(r.status_code is 200)
 		soup = BeautifulSoup(r.content, 'lxml')
-		img_url = 'https://'+soup.find('div', class_='photo-contest-detail-image').find("img")['src'].rsplit('https://', 1)[1]
+		img_url = 'https://'+soup.find('div',class_='photo-contest-detail-image').find("img")['src'].rsplit('https://',1)[1]
 		assert(img_url is not None)
 	elif id == 'wiki':
 		print('WikiMedia')
@@ -80,7 +80,7 @@ def get_url(id):
 	return img_url
 
 def sorting(id, img1, listdir_id, today, hist, save):
-	print(f'        sorting: {listdir_id}')
+	print(f'\tsorting: {listdir_id}')
 	for img2 in listdir_id:
 		if os.path.isfile(today+img1) and os.path.isfile(today+img2):
 			if save and not open(today+img1,'rb').read()==open(today+img2,'rb').read():
