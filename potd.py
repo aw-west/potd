@@ -168,19 +168,13 @@ def getBingLink(out_file):
 def getGuardianLink(out_file):
     #Download web page
     print("Downloading Guardian webpage...")
-    r = requests.get('http://www.theguardian.com/international')
+    r = requests.get('https://www.theguardian.com/news/series/ten-best-photographs-of-the-day/rss')
     if(r.status_code != 200):
         print("ERROR: status_code is not 200, but instead it's "+str(r.status_code))
         sys.exit()
     #get binary response content
-    soup = BeautifulSoup(r.content,"lxml")
-    div_img = soup.find("div", {"data-id":"uk-alpha/special-other/special-story"})
-    assert(div_img is not None)
-
-    # using the _class argument, it search for exactly that class combination. Instead using the dictionary, it searches for the elements that contain that class (and possibly other classes too)
-    potd_link_a = div_img.find("a", {"class":"js-headline-text"})
-    assert(potd_link_a is not None)
-    potd_link = potd_link_a['href']
+    potd_link = r.text.split('guid')[1].split('>')[1].split('<')[0]
+    assert(potd_link is not None)
     print("Link: {}".format(potd_link))
 
     #going to the page of the image of the day
@@ -192,7 +186,7 @@ def getGuardianLink(out_file):
     #get binary response content
     soup_potd = BeautifulSoup(r.content,"lxml")
 
-    img_el = soup_potd.select("div.u-responsive-ratio") #select() returns a list
+    img_el = soup_potd.select("div.immersive-main-media.immersive-main-media__gallery") #select() returns a list
     assert(isinstance(img_el, list))
     assert(len(img_el) == 1)
 
