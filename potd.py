@@ -17,8 +17,9 @@ import os
 import ctypes
 
 def download(url, file):
-	print(f'\tdownloading: {url}\n\t\tinto: {file}')
+	print(f'\t downloading: {url}')
 	r = get(url)
+	print(f'\t        into: {file}')
 	with open(file, 'wb') as f:
 		[f.write(chunk) for chunk in r]
 	return None
@@ -31,14 +32,13 @@ def get_url(id):
 		img_url = url+r.text.rsplit('g_img={url:',1)[1].split('};',1)[0].split('\\',1)[0].replace('"','').replace("'",'').replace(' ','')
 	elif id == 'guardian':
 		print('Guardian')
-		url = 'http://www.theguardian.com/international'
+		url = 'https://www.theguardian.com/news/series/ten-best-photographs-of-the-day/rss'
+		r = get(url)
+		url = r.text.split('guid')[1].split('>')[1].split('<')[0]
+		print(f'\t         url: {url}')
 		r = get(url)
 		soup = BeautifulSoup(r.content, 'lxml')
-		url = soup.find('div', {'data-id':'uk-alpha/special-other/special-story'}).find('a', {'class':'js-headline-text'})['href']
-		r = get(url)
-		soup = BeautifulSoup(r.content, 'lxml')
-		img_url = soup.select('div.u-responsive-ratio')[0].find_all('source')[0]['srcset'].rsplit(',')[-1].strip().split(' ')[0]
-		# img_url = soup.select("div.immersive-main-media.immersive-main-media__gallery")[0].find_all("source")[0]['srcset'].rsplit(',')[-1].strip().split(' ')[0]
+		img_url = soup.select('div.immersive-main-media.immersive-main-media__gallery')[0].find_all('source')[0]['srcset'].rsplit(',')[-1].strip().split(' ')[0]
 	elif id == 'nasa':
 		print('NASA')
 		url = 'http://apod.nasa.gov/'
@@ -56,7 +56,7 @@ def get_url(id):
 		url = 'https://www.smithsonianmag.com/photocontest/photo-of-the-day/'
 		r = get(url)
 		soup = BeautifulSoup(r.content, 'lxml')
-		img_url = 'https://'+soup.find('div',class_='photo-contest-detail-image').find("img")['src'].rsplit('https://',1)[1]
+		img_url = 'https://'+soup.find('div',class_='photo-contest-detail-image').find('img')['src'].rsplit('https://',1)[1]
 	elif id == 'wiki':
 		print('WikiMedia')
 		url = 'https://commons.wikimedia.org/wiki/Main_Page'
@@ -68,7 +68,7 @@ def get_url(id):
 	return img_url
 
 def sorting(id, img1, listdir_id, today, hist, save):
-	print(f'\tsorting: {listdir_id}')
+	print(f'\t     sorting: {listdir_id}')
 	for img2 in listdir_id:
 		if os.path.isfile(today+img1) and os.path.isfile(today+img2):
 			if save and not open(today+img1,'rb').read()==open(today+img2,'rb').read():
