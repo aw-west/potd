@@ -23,7 +23,7 @@ if sys.version_info[0] == 3 and sys.version_info[1] < 6:
     raise Exception("You must run the script with Python >= 3.6")
 
 import requests
-from bs4 import BeautifulSoup   
+from bs4 import BeautifulSoup
 import ctypes
 import os.path
 import datetime
@@ -52,7 +52,7 @@ def setWallpaperPlasma5(image_file):
     bus = dbus.SessionBus()
     plasma = dbus.Interface(bus.get_object('org.kde.plasmashell', '/PlasmaShell'), dbus_interface='org.kde.PlasmaShell')
     plasma.evaluateScript(jscript)
-    
+
 # Set wallpaper on MAC OSX desktop (untested) (https://stackoverflow.com/questions/431205/how-can-i-programmatically-change-the-background-in-mac-os-x)
 def setWallpaperMac(image_file):
     from appscript import app, mactypes
@@ -60,7 +60,7 @@ def setWallpaperMac(image_file):
 
 # Set wallpaper on Windows desktop
 def setWallpaperWindows(image_file):
-    SPI_SETDESKWALLPAPER = 20 
+    SPI_SETDESKWALLPAPER = 20
     SPIF_UPDATEINIFILE = 1
     ctypes.windll.user32.SystemParametersInfoW(SPI_SETDESKWALLPAPER, 0, os.path.abspath(image_file), SPIF_UPDATEINIFILE)
 
@@ -78,7 +78,7 @@ def setWallpaperXfce4(image_file):
     command = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "./change_xfce4_wallpaper.sh") + " " + image_file
     print("COMMAND: "+command)
     subprocess.run(command.split())
-    
+
 def downloadFile(url, output_filepath):
     print("Downloading "+url+" into "+output_filepath)
     r = requests.get(url)
@@ -87,40 +87,40 @@ def downloadFile(url, output_filepath):
             fd.write(chunk)
 
 # Get the link of the Smithsonian image of the day
-def getSmithLink(out_file):    
+def getSmithLink(out_file):
     #Download web page
     print("Downloading Smithsonian webpage...")
-    r = requests.get('https://www.smithsonianmag.com/photocontest/photo-of-the-day/')    
+    r = requests.get('https://www.smithsonianmag.com/photocontest/photo-of-the-day/')
     if(r.status_code != 200):
         print("ERROR: no image of the day found for Smithsonian")
         return None
     #get binary response content
-    soup = BeautifulSoup(r.content,"lxml")    
-    div_item = soup.find("div",class_="photo-contest-detail-image")    
+    soup = BeautifulSoup(r.content,"lxml")
+    div_item = soup.find("div",class_="photo-contest-detail-image")
     assert(div_item is not None)
-    img_tag = div_item.find("img") 
+    img_tag = div_item.find("img")
     assert(img_tag is not None)
     img_link = img_tag['src']
     #get the high resolution version
     img_link = 'https://' + img_link.split("https://")[2]
     downloadFile(img_link, out_file)
     return out_file
-    
+
 # Get the link of the WikiMedia image of the day
-def getWikiMediaLink(out_file):    
+def getWikiMediaLink(out_file):
     #Download web page
     print("Downloading WikiMedia webpage...")
-    r = requests.get('https://commons.wikimedia.org/wiki/Main_Page')    
+    r = requests.get('https://commons.wikimedia.org/wiki/Main_Page')
     if(r.status_code != 200):
         print("ERROR: status_code: "+r.status_code)
-        sys.exit()    
+        sys.exit()
     #get binary response content
     cont = r.content
-    soup = BeautifulSoup(cont,"lxml")    
-    img_item = soup.find("img")    
+    soup = BeautifulSoup(cont,"lxml")
+    img_item = soup.find("img")
     if(img_item is None):
-        print("ERROR: img_item not found")    
-    img_link = img_item['src'].replace("thumb/","")    
+        print("ERROR: img_item not found")
+    img_link = img_item['src'].replace("thumb/","")
     pos = img_link.rfind("/")
     img_link = img_link[0:pos]
     downloadFile(img_link, out_file)
@@ -130,19 +130,19 @@ def getWikiMediaLink(out_file):
 def getNGLink(out_file):
     #Download web page
     print("Downloading NG webpage...")
-    r = requests.get('http://www.nationalgeographic.com/photography/photo-of-the-day/')    
+    r = requests.get('http://www.nationalgeographic.com/photography/photo-of-the-day/')
     if(r.status_code != 200):
         print("ERROR: status_code: "+r.status_code)
-        sys.exit()    
+        sys.exit()
     #get binary response content
     cont = r.content
     #print(cont)
-    soup = BeautifulSoup(cont,"lxml")    
+    soup = BeautifulSoup(cont,"lxml")
     s_url = soup.find("meta", {"property":"og:url"})
     s_desc = soup.find("meta", {"name":"description"})
-    s_image = soup.find("meta", {"property":"og:image"})    
+    s_image = soup.find("meta", {"property":"og:image"})
     if(s_image is None):
-        print("ERROR: s_image not found")    
+        print("ERROR: s_image not found")
     img_link = s_image['content']
     downloadFile(img_link, out_file)
     return out_file
@@ -151,76 +151,76 @@ def getNGLink(out_file):
 def getBingLink(out_file):
     #Download web page
     print("Downloading Bing webpage...")
-    r = requests.get('https://www.bing.com', stream=True)    
+    r = requests.get('https://www.bing.com', stream=True)
     if(r.status_code != 200):
         print("ERROR: status_code: "+r.status_code)
-        sys.exit()    
+        sys.exit()
     #get text
-    cont = r.text    
+    cont = r.text
     #re.match -> only matches AT THE BEGINNIGN OF THE STRING
     # *? is the non-greedy version
     link = re.search('g_img={url:"((.*?)\.(jpg|png))(.*)"};', cont).group(1)
     img_link = "http://www.bing.com"+link
     downloadFile(img_link, out_file)
     return out_file
-    
+
 #Get link of the Guardian image of the day
 def getGuardianLink(out_file):
     #Download web page
     print("Downloading Guardian webpage...")
-    r = requests.get('http://www.theguardian.com/international')    
+    r = requests.get('http://www.theguardian.com/international')
     if(r.status_code != 200):
         print("ERROR: status_code is not 200, but instead it's "+str(r.status_code))
-        sys.exit()    
+        sys.exit()
     #get binary response content
-    soup = BeautifulSoup(r.content,"lxml")    
+    soup = BeautifulSoup(r.content,"lxml")
     div_img = soup.find("div", {"data-id":"uk-alpha/special-other/special-story"})
     assert(div_img is not None)
-    
+
     # using the _class argument, it search for exactly that class combination. Instead using the dictionary, it searches for the elements that contain that class (and possibly other classes too)
     potd_link_a = div_img.find("a", {"class":"js-headline-text"})
     assert(potd_link_a is not None)
     potd_link = potd_link_a['href']
     print("Link: {}".format(potd_link))
-    
+
     #going to the page of the image of the day
-    r = requests.get(potd_link)    
+    r = requests.get(potd_link)
     if(r.status_code != 200):
         print("ERROR: status_code is not 200, but instead it's "+str(r.status_code))
-        sys.exit()    
-        
+        sys.exit()
+
     #get binary response content
-    soup_potd = BeautifulSoup(r.content,"lxml")   
-    
+    soup_potd = BeautifulSoup(r.content,"lxml")
+
     img_el = soup_potd.select("div.u-responsive-ratio") #select() returns a list
     assert(isinstance(img_el, list))
     assert(len(img_el) == 1)
-    
+
     #img_src = img_el[0].find("source", {"sizes":"135.62646370023418vh"})
     img_list = img_el[0].find_all("source")
     assert(img_list is not None)
-        
+
     img_src = img_list[0]
     assert(img_src is not None)
-    
+
     links = img_src['srcset'] #returns a string
     highest_res_link = links.split(",")[-1].strip().split(" ")[0]
-    print(highest_res_link)    
-    
+    print(highest_res_link)
+
     downloadFile(highest_res_link, out_file)
     return out_file
-    
+
 #Get link of the NASA image of the day
 def getNASALink(out_file):
     #Download web page
     print("Downloading NASA webpage...")
     base_url = 'http://apod.nasa.gov'
-    r = requests.get(base_url)    
+    r = requests.get(base_url)
     if(r.status_code != 200):
         print("ERROR: status_code is not 200, but instead it's "+str(r.status_code))
-        sys.exit()    
+        sys.exit()
     #get binary response content
-    soup = BeautifulSoup(r.content,"lxml")    
+    soup = BeautifulSoup(r.content,"lxml")
     div_img = soup.find("img")
     highest_res_link = base_url + "/" + div_img['src']
     downloadFile(highest_res_link, out_file)
@@ -231,10 +231,10 @@ def getNASALink(out_file):
 def getBingPreLink(out_file):
     #Download web page
     print("Downloading Bing Preview webpage...")
-    r = requests.get('http://www.bing.com')    
+    r = requests.get('http://www.bing.com')
     if(r.status_code != 200):
         print("ERROR: status_code: "+r.status_code)
-        sys.exit()    
+        sys.exit()
     #get binary response content as text
     cont = r.text
     to_find = "g_prefetch = {'Im': {url:"
@@ -261,7 +261,7 @@ def getMetadata(json_path):
         with open(json_path, "r", encoding="utf-8") as fileh:
             data = json.load(fileh)
     return data
-    
+
 def changeWallpaper(env, img_path):
     print("changeWallpaper: changing wallpaper to '{}'".format(img_path))
     if env == "gnome":
@@ -275,18 +275,18 @@ def changeWallpaper(env, img_path):
     else:
         print("Error in changeWallpaper(): Platform '{}' not implemented yet".format(env))
 
-def changeWallpaperPeriodically(env, filelist, next_file, sch, period, img_dir): 
+def changeWallpaperPeriodically(env, filelist, next_file, sch, period, img_dir):
     # do your stuff
     file_to_use = filelist[next_file]
     next_file = (next_file+1) % len(filelist)
     img_path = os.path.join(img_dir, file_to_use)
     #print("[changeWallpaperPeriodically] Changing wallpaper to: '{}'".format(img_path))
     changeWallpaper(env, img_path)
-    
+
     priority = 1
     pos_args=(env, filelist, next_file, sch, period, img_dir)
     sch.enter(period, priority, changeWallpaperPeriodically, argument=pos_args)
-    
+
 def getOutputDir(env):
     if env in ["gnome", "kde", "xfce4"]:
         img_dir = os.path.expandvars("$HOME/.potd")
@@ -299,8 +299,8 @@ def getOutputDir(env):
         raise Exception("Environment {} not implemented".format(env))
     os.makedirs(img_dir, exist_ok=True)
     return img_dir
-        
-if __name__ == "__main__":  
+
+if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Download the Photo of the Day of various sites and set it as the wallpaper of your desktop.')
     parser.add_argument('--site', choices=['ng', 'bing', 'wiki', 'guardian','nasa', 'smith', 'all'], help='The website from which to download Photo of the Day.', default="all")
@@ -320,54 +320,54 @@ if __name__ == "__main__":
     # Download wallpaper images
 
     spec_path = None
-    
+
     if args.site in ['ng', 'all']:
         spec_path = os.path.join(img_path+"ng.jpg")
         if not os.path.isfile(spec_path):
             getNGLink(spec_path)
         else:
             print("National Geographic wallpaper already downloaded")
-            
+
     if args.site in ['bing', 'all']:
         spec_path = os.path.join(img_path+"bing.jpg")
         if not os.path.isfile(spec_path):
-            getBingLink(spec_path)    
+            getBingLink(spec_path)
         else:
             print("Bing wallpaper already downloaded")
-            
+
     if args.site in ['wiki', 'all']:
         spec_path = os.path.join(img_path+"wiki.jpg")
         if not os.path.isfile(spec_path):
             getWikiMediaLink(spec_path)
         else:
             print("Wikimedia wallpaper already downloaded")
-        
+
     if args.site in ['guardian', 'all']:
         spec_path = os.path.join(img_path+"guardian.jpg")
         if not os.path.isfile(spec_path):
             getGuardianLink(spec_path)
         else:
             print("The Guardian wallpaper already downloaded")
-        
+
     if args.site in ['nasa', 'all']:
         spec_path = os.path.join(img_path+"nasa.jpg")
         if not os.path.isfile(spec_path):
             getNASALink(spec_path)
         else:
             print("NASA wallpaper already downloaded")
-    
+
     if args.site in ['smith', 'all']:
         spec_path = os.path.join(img_path+"smith.jpg")
         if not os.path.isfile(spec_path):
             getSmithLink(spec_path)
         else:
             print("Smithsonian wallpaper already downloaded")
-            
+
     assert(img_path is not None)
-    
+
     # Set the image as the new desktop wallpaper
     #saveMetadata(img_path, args.site, json_path)
-    
+
     if args.loop:
         print("Entering loop....")
         sch = sched.scheduler(time.time, time.sleep)
@@ -386,7 +386,7 @@ if __name__ == "__main__":
         sch.run()
         while True:
             time.sleep(args.period*100)
-            
+
     else:
         if spec_path is None:
             print("ERROR: you haven't downloaded any wallpaper")
