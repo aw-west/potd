@@ -1,115 +1,170 @@
 # Picture of the day
 #
 # Description:
-#   potd but windows, downloads and sorts.
+#   downloads and sorts picture of the day from websites.
 #
 # Version:
-#   v1.0
+#   v1.7
+#   .1 try: downloading; except: print(failed)
+#   .6 Guardian UK/Int:  Separated Guardian UK and Int
+#   .7 Logger:  implemented a console log file
+#   .7 config:  implemented a config yaml file
 # Issues:
-#   pyinstaller set publisher
-#   is .jpg good enough
+#   is assuming .jpg good enough?
+#   is it possible to add a pyinstaller publisher
+# Feature Creep:
 #   installer creates shell:startup and sets desktop-wallpaper
 
-from requests import get
-from bs4 import BeautifulSoup
-from time import strftime
-import os
-import ctypes
 
-def download(url, file):
-	print(f'\t downloading: {url}')
-	r = get(url)
-	print(f'\t        into: {file}')
-	with open(file, 'wb') as f:
+import requests
+from bs4 import BeautifulSoup
+import time
+import os
+import yaml
+
+class Logger:
+	def __init__(self, log:bool, filename:str, newline:str):
+		self.log = log
+		self.filename = filename
+		if self.log:
+			print(f'\n\n{newline}', file=open(self.filename,'a'))
+	def print(self, x):
+		print(x)
+		if self.log:
+			print(f'\t{x}', file=open(self.filename,'a'))
+
+
+def config(filename='config'):
+	if os.path.isfile(filename):
+		data = yaml.load(open(filename, 'r'))
+	else:
+		data = {
+			'save': True,
+			'log': True,
+			'ids': {
+				'bing': True,
+				'guardian_uk': True,
+				'guardian_int': True,
+				'nasa': True,
+				'ng': True,
+				'smith': True,
+				'wiki': True,
+				},
+			}
+		yaml.dump(data, open(filename, 'w'), default_flow_style=False)
+	return data
+
+
+def download(url, path):
+	r = requests.get(url)
+	assert(r.status_code is 200)
+	with open(path, 'wb') as f:
 		[f.write(chunk) for chunk in r]
-	return None
 
 def get_url(id):
 	if id == 'bing':
-		print('Bing')
+		name = 'Bing'
 		url = 'http://www.bing.com'
-		r = get(url)
+		r = requests.get(url)
+		assert(r.status_code is 200)
 		img_url = url+r.text.rsplit('g_img={url:',1)[1].split('};',1)[0].split('\\',1)[0].replace('"','').replace("'",'').replace(' ','')
-	elif id == 'guardian':
-		print('Guardian')
+		assert(img_url is not None)
+	elif id == 'guardian_uk':
+		name = 'Guardian UK'
 		url = 'https://www.theguardian.com/news/series/ten-best-photographs-of-the-day/rss'
-		r = get(url)
+		r = requests.get(url)
+		assert(r.status_code is 200)
 		url = r.text.split('guid')[1].split('>')[1].split('<')[0]
-		print(f'\t         url: {url}')
-		r = get(url)
+		r = requests.get(url)
+		assert(r.status_code is 200)
 		soup = BeautifulSoup(r.content, 'lxml')
 		img_url = soup.select('div.immersive-main-media.immersive-main-media__gallery')[0].find_all('source')[0]['srcset'].rsplit(',')[-1].strip().split(' ')[0]
+		assert(img_url is not None)
+	elif id == 'guardian_int':
+		name = 'Guardian International'
+		url = 'http://www.theguardian.com/international'
+		r = requests.get(url)
+		assert(r.status_code is 200)
+		soup = BeautifulSoup(r.content, 'lxml')
+		url = soup.find('div', {'data-id':'uk-alpha/special-other/special-story'}).find('a', {'class':'js-headline-text'})['href']
+		r = requests.get(url)
+		assert(r.status_code is 200)
+		soup = BeautifulSoup(r.content, 'lxml')
+		img_url = soup.select('div.u-responsive-ratio')[0].find_all('source')[0]['srcset'].rsplit(',')[-1].strip().split(' ')[0]
+		assert(img_url is not None)
 	elif id == 'nasa':
-		print('NASA')
+		name = 'NASA'
 		url = 'http://apod.nasa.gov/'
-		r = get(url)
+		r = requests.get(url)
+		assert(r.status_code is 200)
 		soup = BeautifulSoup(r.content, 'lxml')
 		img_url = url+soup.find('img')['src']
 	elif id == 'ng':
-		print('National Geographic')
+		name = 'National Geographic'
 		url = 'http://www.nationalgeographic.com/photography/photo-of-the-day/'
-		r = get(url)
+		r = requests.get(url)
+		assert(r.status_code is 200)
 		soup = BeautifulSoup(r.content, 'lxml')
 		img_url = soup.find('meta',{'property':'og:image'})['content']
+		assert(img_url is not None)
 	elif id == 'smith':
-		print('Smithsonian')
+		name = 'Smithsonian'
 		url = 'https://www.smithsonianmag.com/photocontest/photo-of-the-day/'
-		r = get(url)
+		r = requests.get(url)
+		assert(r.status_code is 200)
 		soup = BeautifulSoup(r.content, 'lxml')
 		img_url = 'https://'+soup.find('div',class_='photo-contest-detail-image').find('img')['src'].rsplit('https://',1)[1]
+		assert(img_url is not None)
 	elif id == 'wiki':
-		print('WikiMedia')
+		name = 'WikiMedia'
 		url = 'https://commons.wikimedia.org/wiki/Main_Page'
-		r = get(url)
+		r = requests.get(url)
+		assert(r.status_code is 200)
 		soup = BeautifulSoup(r.content, 'lxml')
 		img_url = soup.find('img')['src'].replace('thumb/','').rsplit('/',1)[0]
+		assert(img_url is not None)
 	else:
-		print(f'WarningWebID:  {id} not recognised.')
-	return img_url
+		name = f'WarningWebID:  {id} not recognised.'
+		img_url = None
+	return name, img_url
 
-def sorting(id, img1, listdir_id, today, hist, save):
-	print(f'\t     sorting: {listdir_id}')
+def sort(id, img1, listdir_id, today, hist, save):
 	for img2 in listdir_id:
 		if os.path.isfile(today+img1) and os.path.isfile(today+img2):
 			if save and not open(today+img1,'rb').read()==open(today+img2,'rb').read():
 				os.rename(today+img2, hist+img2)
 			else:
 				os.remove(today+img2)
-	return None
 
-def set_wallpaper(path):
-	# Windows Only
-	ctypes.windll.user32.SystemParametersInfoW(20, 0, path, 0)
-	return None
 
-def main(ids, save):
+def main(ids:dict, save:bool, log:bool):
+	date = time.strftime('%Y-%m-%d ', time.gmtime())
+	log = Logger(log, 'log', f'POTD: {date}')
 	path = os.getcwd().replace('\\','/')
-	today, hist = path+'/today/', path+'/history/'
-	if not os.path.isdir(today): os.mkdir(today)
-	if not os.path.isdir(hist): os.mkdir(hist)
-	date = strftime('%Y-%m-%d ')
-
+	today = path + '/today/'
+	if not os.path.isdir(today):
+		os.mkdir(today)
+	hist = path + '/history/'
+	if not os.path.isdir(hist):
+		os.mkdir(hist)
 	listdir = os.listdir(today)
-	for id in ids:
-		listdir_id = list(filter(lambda el: id in el, listdir))
-		img_name = date+id+'.jpg'
-		if img_name not in listdir_id:
-			try:
-				img_url = get_url(id)
-				download(img_url, today+img_name)
-				sorting(id, img_name, listdir_id, today, hist, save)
-			except:
-				print('\tfailed')
-	set_wallpaper(today)
-	return None
+	for id, v in ids.items():
+		if v:
+			listdir_id = list(filter(lambda el: id in el, listdir))
+			img_name = date+id+'.jpg'
+			if img_name not in listdir_id:
+				name, url = get_url(id)
+				log.print(name)
+				path = today + img_name
+				try:
+					log.print(f'\tdownloading: {url}')
+					log.print(f'\t       into: {path}')
+					download(url, path)
+					log.print(f'\t    sorting: {listdir_id}')
+					sort(id, img_name, listdir_id, today, hist, save)
+				except:
+					log.print(f'\tdownloading: Failed')
+
 
 if __name__ == '__main__':
-	ids = [
-		'bing',
-		'guardian',
-		'nasa',
-		'ng',
-		'smith',
-		'wiki'
-		]
-	main(ids, save=True)
+	main(**config())
