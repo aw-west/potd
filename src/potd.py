@@ -34,25 +34,48 @@ class Logger:
 			print(f'\t{x}', file=open(self.filename,'a'))
 
 
-def config(filename='config'):
+def config(filename:str='config'):
+	'''
+	Configuration dictionary loader,
+	loads yaml config file,
+	safely update config dictionary from defaults
+	dumps safe config dict to yaml
+	'''
+	data = {
+		'ids': {
+			'bing': True,
+			'guardian_uk': True,
+			'guardian_int': True,
+			'nasa': True,
+			'ng': True,
+			'smith': True,
+			'wiki': True,
+			},
+		'log': True,
+		'save': True,
+		}
 	if os.path.isfile(filename):
-		data = yaml.load(open(filename, 'r'))
-	else:
-		data = {
-			'save': True,
-			'log': True,
-			'ids': {
-				'bing': True,
-				'guardian_uk': True,
-				'guardian_int': True,
-				'nasa': True,
-				'ng': True,
-				'smith': True,
-				'wiki': True,
-				},
-			}
-		yaml.dump(data, open(filename, 'w'), default_flow_style=False)
+		data_loaded = yaml.load(open(filename, 'r'))
+		data = dictUpdateExclusive(data, data_loaded)
+	yaml.dump(data, open(filename, 'w'), default_flow_style=False)
 	return data
+
+def dictUpdateExclusive(d0:dict, d1:dict):
+	'''
+	A safe dictionary updator,
+	for only keys that are in the old dict
+	and ensuring the same value type
+	'''
+	d2 = d0
+	for k0 in d0.keys():
+		if k0 in d1.keys():
+			v0, v1 = d0[k0], d1[k0]
+			if type(v0) == type(v1):
+				if isinstance(d0[k0], dict):
+					d2[k0] = dictUpdateExclusive(v0, v1)
+				else:
+					d2[k0] = v1
+	return d2
 
 
 def download(url, path):
@@ -63,12 +86,32 @@ def download(url, path):
 
 def get_url(id):
 	if id == 'bing':
+		name = 'Guardian International'
+		url = 'http://www.theguardian.com/international'
+		r = requests.get(url)
+		assert(r.status_code is 200)
+		soup = BeautifulSoup(r.content, 'lxml')
+		url = soup.find('div', {'data-id':'uk-alpha/special-other/special-story'}).find('a', {'class':'js-headline-text'})['href']
+		r = requests.get(url)
+		assert(r.status_code is 200)
+		soup = BeautifulSoup(r.content, 'lxml')
+		img_url = soup.select('div.u-responsive-ratio')[0].find_all('source')[0]['srcset'].rsplit(',')[-1].strip().split(' ')[0]
+		assert(img_url is not None)
+
+
+		exit()
+
 		name = 'Bing'
 		url = 'http://www.bing.com'
 		r = requests.get(url)
 		assert(r.status_code is 200)
-		img_url = url+r.text.rsplit('g_img={url:',1)[1].split('};',1)[0].split('\\',1)[0].replace('"','').replace("'",'').replace(' ','')
+		soup = BeautifulSoup(r.content, 'lxml')
+		img_url = soup.findAll('link')['']
+
+		# img_url = url+r.text.rsplit('g_img={url:',1)[1].split('};',1)[0].split('\\',1)[0].replace('"','').replace("'",'').replace(' ','')
 		assert(img_url is not None)
+		print(img_url)
+		exit()
 	elif id == 'guardian_uk':
 		name = 'Guardian UK'
 		url = 'https://www.theguardian.com/news/series/ten-best-photographs-of-the-day/rss'
@@ -137,7 +180,7 @@ def sort(id, img1, listdir_id, today, hist, save):
 				os.remove(today+img2)
 
 
-def main(ids:dict, save:bool, log:bool):
+def main(ids:dict, log:bool, save:bool):
 	date = time.strftime('%Y-%m-%d ', time.gmtime())
 	log = Logger(log, 'log', f'POTD: {date}')
 	path = os.getcwd().replace('\\','/')
@@ -152,18 +195,17 @@ def main(ids:dict, save:bool, log:bool):
 		if v:
 			listdir_id = list(filter(lambda el: id in el, listdir))
 			img_name = date+id+'.jpg'
+			path = today + img_name
 			if img_name not in listdir_id:
 				name, url = get_url(id)
 				log.print(name)
-				path = today + img_name
-				try:
-					log.print(f'\tdownloading: {url}')
-					log.print(f'\t       into: {path}')
-					download(url, path)
-					log.print(f'\t    sorting: {listdir_id}')
-					sort(id, img_name, listdir_id, today, hist, save)
-				except:
-					log.print(f'\tdownloading: Failed')
+				download(url, path)
+				log.print(f'\tdownloading: {url}')
+				log.print(f'\t       into: {path}')
+				log.print(f'\t    sorting: {listdir_id}')
+				sort(id, img_name, listdir_id, today, hist, save)
+
+
 
 
 if __name__ == '__main__':
