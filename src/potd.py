@@ -55,23 +55,24 @@ def config(filename:str='config'):
 		'save': True,
 		}
 	if os.path.isfile(filename):
-		data_loaded = yaml.load(open(filename, 'r'))
+		data_loaded = yaml.load(open(filename, 'r'), Loader=yaml.SafeLoader)
 		data = dictUpdateExclusive(data, data_loaded)
 	yaml.dump(data, open(filename, 'w'), default_flow_style=False)
 	return data
 
-def dictUpdateExclusive(d0:dict, d1:dict):
+def dictUpdateExclusive(d0:dict, d1:dict, nested:bool=True):
 	'''
-	A safe dictionary updator,
-	for only keys that are in the old dict
-	and ensuring the same value type
+	A safe dictionary updater,
+	Updates only keys that are in the old dict
+	Ensuring the same data type
+	And repeats for nested dictionaries, controllable with 'nested' parameter.
 	'''
 	d2 = d0
 	for k0 in d0.keys():
 		if k0 in d1.keys():
 			v0, v1 = d0[k0], d1[k0]
 			if type(v0) == type(v1):
-				if isinstance(d0[k0], dict):
+				if nested and isinstance(d0[k0], dict):
 					d2[k0] = dictUpdateExclusive(v0, v1)
 				else:
 					d2[k0] = v1
@@ -86,32 +87,13 @@ def download(url, path):
 
 def get_url(id):
 	if id == 'bing':
-		name = 'Guardian International'
-		url = 'http://www.theguardian.com/international'
-		r = requests.get(url)
-		assert(r.status_code is 200)
-		soup = BeautifulSoup(r.content, 'lxml')
-		url = soup.find('div', {'data-id':'uk-alpha/special-other/special-story'}).find('a', {'class':'js-headline-text'})['href']
-		r = requests.get(url)
-		assert(r.status_code is 200)
-		soup = BeautifulSoup(r.content, 'lxml')
-		img_url = soup.select('div.u-responsive-ratio')[0].find_all('source')[0]['srcset'].rsplit(',')[-1].strip().split(' ')[0]
-		assert(img_url is not None)
-
-
-		exit()
-
 		name = 'Bing'
 		url = 'http://www.bing.com'
 		r = requests.get(url)
 		assert(r.status_code is 200)
 		soup = BeautifulSoup(r.content, 'lxml')
-		img_url = soup.findAll('link')['']
-
-		# img_url = url+r.text.rsplit('g_img={url:',1)[1].split('};',1)[0].split('\\',1)[0].replace('"','').replace("'",'').replace(' ','')
+		img_url = url+soup.findAll('link', {'as':'image'})[0]['href']
 		assert(img_url is not None)
-		print(img_url)
-		exit()
 	elif id == 'guardian_uk':
 		name = 'Guardian UK'
 		url = 'https://www.theguardian.com/news/series/ten-best-photographs-of-the-day/rss'
