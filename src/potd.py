@@ -4,21 +4,20 @@
 #   downloads and sorts picture of the day from websites.
 #
 # Version:
-#   v1.8
+#   v1.9
 #   .1 try: downloading; except: print(failed)
 #   .6 Guardian UK/Int:  Separated Guardian UK and Int
 #   .7 Logger:  implemented a console log file
 #   .7 config:  implemented a config yaml file
 #   .8 is==:  Due to py3.9 assert 'is'->'=='
+#   .9 used xpaths
 # Issues:
 #   is assuming .jpg good enough?
 #   is it possible to add a pyinstaller publisher
-#   smithsonian broken
-# Feature Creep:
-#   installer creates shell:startup and sets desktop-wallpaper
+__version__ = '1.9'
 import requests
-from bs4 import BeautifulSoup
-import time
+from lxml import etree
+from datetime import datetime
 import os
 import yaml
 
@@ -34,6 +33,22 @@ class Logger:
 			print(f'\t{x}', file=open(self.filename,'a'))
 
 
+def dict_update_exclusive(d0:dict, d1:dict, nested:bool=True):
+	'''
+	A safe dictionary updater,
+	Updates only keys that are in the original dict
+	Ensuring the same data type
+	And repeats for nested dictionaries, controllable with 'nested' parameter.
+	'''
+	d2 = d0.copy()
+	for k in d0.keys():
+		if k in d1.keys() and type(d0[k]) == type(d1[k]):
+			if nested and isinstance(d0[k], dict):
+				d2[k] = dict_update_exclusive(d0[k], d1[k])
+			else:
+				d2[k] = d1[k]
+	return d2
+
 def config(filename:str='config'):
 	'''
 	Configuration dictionary loader,
@@ -48,7 +63,11 @@ def config(filename:str='config'):
 			'guardian_int': True,
 			'nasa': True,
 			'ng': True,
-			'smith': False,
+			'smithsonian_drone_aerial': True,
+			'smithsonian_artistic': True,
+			'smithsonian_people': True,
+			'smithsonian_travel': True,
+			'smithsonian_natural_world': True,
 			'wiki': True,
 			},
 		'log': True,
@@ -56,31 +75,24 @@ def config(filename:str='config'):
 		}
 	if os.path.isfile(filename):
 		data_loaded = yaml.load(open(filename, 'r'), Loader=yaml.SafeLoader)
-		data = dictUpdateExclusive(data, data_loaded)
+		data = dict_update_exclusive(data, data_loaded)
 	yaml.dump(data, open(filename, 'w'), default_flow_style=False)
 	return data
 
-def dictUpdateExclusive(d0:dict, d1:dict, nested:bool=True):
-	'''
-	A safe dictionary updater,
-	Updates only keys that are in the old dict
-	Ensuring the same data type
-	And repeats for nested dictionaries, controllable with 'nested' parameter.
-	'''
-	d2 = d0
-	for k0 in d0.keys():
-		if k0 in d1.keys():
-			v0, v1 = d0[k0], d1[k0]
-			if type(v0) == type(v1):
-				if nested and isinstance(d0[k0], dict):
-					d2[k0] = dictUpdateExclusive(v0, v1)
-				else:
-					d2[k0] = v1
-	return d2
 
+def get_url_xpath(url, xpath):
+    return etree.HTML(requests.get(url).content).xpath(xpath)[0]
+
+def get_smith(id):
+    url = 'https://photocontest.smithsonianmag.com'
+    cat = '/photocontest/categories/{}/'.format(id.replace('smithsonian_', '').replace('_', '-'))
+    xpath1 = '/html/body/div[2]/div[3]/div/div[1]/a'
+    url2 = url + get_url_xpath(url+cat, xpath1).get('href')
+    xpath2 = '/html/body/div[2]/div[2]/div[1]/img'
+    return 'https://' + get_url_xpath(url2, xpath2).get('src').split('/https://')[1]
 
 def download(url, path):
-	r = requests.get(url)
+	r = requests.get(url, headers={'User-Agent': 'CoolBot/0.0'})
 	assert(r.status_code == 200)
 	with open(path, 'wb') as f:
 		[f.write(chunk) for chunk in r]
@@ -89,65 +101,48 @@ def get_url(id):
 	if id == 'bing':
 		name = 'Bing'
 		url = 'http://www.bing.com'
-		r = requests.get(url)
-		assert(r.status_code == 200)
-		soup = BeautifulSoup(r.content, 'lxml')
-		img_url = url+soup.findAll('link', {'as':'image'})[0]['href']
-		assert(img_url is not None)
+		xpath = '/html/head/link[2]'
+		img_url = url + get_url_xpath(url, xpath).get('href').split('.webp&qlt=')[0] + '.jpg'
 	elif id == 'guardian_uk':
 		name = 'Guardian UK'
-		url = 'https://www.theguardian.com/news/series/ten-best-photographs-of-the-day/rss'
-		r = requests.get(url)
-		assert(r.status_code == 200)
-		url = r.text.split('guid')[1].split('>')[1].split('<')[0]
-		r = requests.get(url)
-		assert(r.status_code == 200)
-		soup = BeautifulSoup(r.content, 'lxml')
-		img_url = soup.select('div.immersive-main-media.immersive-main-media__gallery')[0].find_all('source')[0]['srcset'].rsplit(',')[-1].strip().split(' ')[0]
-		assert(img_url is not None)
+		url = 'https://www.theguardian.com/news/series/ten-best-photographs-of-the-day/'
+		xpath = '/html/body/div[3]/div/section[1]/div/div/div/ul/li/div/div/div[1]/div/picture/source[1]'
+		img_url = get_url_xpath(url, xpath).get('srcset').split(' ')[0]
 	elif id == 'guardian_int':
 		name = 'Guardian International'
-		url = 'http://www.theguardian.com/international'
-		r = requests.get(url)
-		assert(r.status_code == 200)
-		soup = BeautifulSoup(r.content, 'lxml')
-		url = soup.find('div', {'data-id':'uk-alpha/special-other/special-story'}).find('a', {'class':'js-headline-text'})['href']
-		r = requests.get(url)
-		assert(r.status_code == 200)
-		soup = BeautifulSoup(r.content, 'lxml')
-		img_url = soup.select('div.u-responsive-ratio')[0].find_all('source')[0]['srcset'].rsplit(',')[-1].strip().split(' ')[0]
-		assert(img_url is not None)
+		url = 'https://www.theguardian.com/international'
+		xpath = '/html/body/div[3]/div/section[2]/div/div/div[1]/ul/li[1]/div/div/div[1]/div/picture/source[1]'
+		img_url = get_url_xpath(url, xpath).get('srcset').split(' ')[0]
 	elif id == 'nasa':
 		name = 'NASA'
-		url = 'http://apod.nasa.gov/'
-		r = requests.get(url)
-		assert(r.status_code == 200)
-		soup = BeautifulSoup(r.content, 'lxml')
-		img_url = url+soup.find('img')['src']
+		url = 'https://apod.nasa.gov/'
+		xpath = '/html/body/center[1]/p[2]/a/img'
+		img_url = url + get_url_xpath(url, xpath).get('src')
 	elif id == 'ng':
 		name = 'National Geographic'
 		url = 'http://www.nationalgeographic.com/photography/photo-of-the-day/'
-		r = requests.get(url)
-		assert(r.status_code == 200)
-		soup = BeautifulSoup(r.content, 'lxml')
-		img_url = soup.find('meta',{'property':'og:image'})['content']
-		assert(img_url is not None)
-	elif id == 'smith':
-		name = 'Smithsonian'
-		url = 'https://www.smithsonianmag.com/photocontest/photo-of-the-day/'
-		r = requests.get(url)
-		assert(r.status_code == 200)
-		soup = BeautifulSoup(r.content, 'lxml')
-		img_url = 'https://'+soup.find('div',class_='photo-contest-detail-image').find('img')['src'].rsplit('https://',1)[1]
-		assert(img_url is not None)
+		xpath = '/html/body/div[1]/div/div[last()]/div[1]/div/div/div[1]/div[2]/div/div/div[3]/div[1]/div[1]/aside/div/div[1]/div/div/div/div[1]/div/div/div/div/img'
+		img_url = get_url_xpath(url, xpath).get('src')
+	elif id == 'smithsonian_drone_aerial':
+		name = 'Smithsonian Drone/Aerial'
+		img_url = get_smith(id)
+	elif id == 'smithsonian_artistic':
+		name = 'Smithsonian Artistic'
+		img_url = get_smith(id)
+	elif id == 'smithsonian_people':
+		name = 'Smithsonian People'
+		img_url = get_smith(id)
+	elif id == 'smithsonian_travel':
+		name = 'Smithsonian Travel'
+		img_url = get_smith(id)
+	elif id == 'smithsonian_natural_world':
+		name = 'Smithsonian Natural World'
+		img_url = get_smith(id)
 	elif id == 'wiki':
-		name = 'WikiMedia'
-		url = 'https://commons.wikimedia.org/wiki/Main_Page'
-		r = requests.get(url)
-		assert(r.status_code == 200)
-		soup = BeautifulSoup(r.content, 'lxml')
-		img_url = soup.find('img')['src'].replace('thumb/','').rsplit('/',1)[0]
-		assert(img_url is not None)
+		name = 'Wikipedia'
+		url = 'https://commons.wikimedia.org/'
+		xpath = '/html/body/div[3]/div[3]/div[5]/div[1]/div/table[2]/tbody/tr/td[1]/div[1]/div[2]/div[1]/div[1]/a/img'
+		img_url = get_url_xpath(url, xpath).get('src').replace('/thumb/', '/').split('.jpg/')[0] + '.jpg'
 	else:
 		name = f'WarningWebID:  {id} not recognised.'
 		img_url = None
@@ -163,7 +158,7 @@ def sort(id, img1, listdir_id, today, hist, save):
 
 
 def main(ids:dict, log:bool, save:bool):
-	date = time.strftime('%Y-%m-%d ', time.gmtime())
+	date = datetime.today().strftime('%Y-%m-%d ')
 	log = Logger(log, 'log', f'POTD: {date}')
 	path = os.getcwd().replace('\\','/')
 	today = path + '/today/'

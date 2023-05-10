@@ -4,11 +4,17 @@
 ## Features
 __Download__ pictures of the day (`today` folder).  Sources:
 - Bing
-- Guardian International
-- Guardian UK
+- Guardian
+  - UK
+  - International
 - NASA
 - National Geographic
 - Smithsonian
+  - Drone/Aerial
+  - Artistic
+  - People
+  - Travel
+  - Natural World
 - WikiMedia
  - _more suggestions are welcome_  
 
@@ -18,8 +24,8 @@ __Configure__ these features (`config` file).
 
 
 ## Wishlist
-___Run Daily___ automatically (OS specific).  
-___Set Wallpaper___ automatically (OS specific).  
+___Run Daily__ automatically (OS specific).  
+___Set Wallpaper__ automatically (OS specific).  
 
 
 ## Usage
