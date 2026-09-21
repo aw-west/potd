@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "type": "module",
   "dependencies": {
+    "fs-extra": "^11",
     "jsdom": "^30"
   }
 }
