@@ -1,4 +1,4 @@
-name: Update POTD
+name: scrape_potd
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  update:
+  scrape_potd:
     runs-on: ubuntu-slim
     steps:
       - uses: actions/checkout@v7
