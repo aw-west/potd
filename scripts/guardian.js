@@ -1,45 +1,27 @@
 import { JSDOM } from "jsdom";
 
-const FEEDS = [
-  {
-    source: "Guardian UK",
-    pageUrl:
-      "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
-  },
-  {
-    source: "Guardian International",
-    pageUrl: "https://www.theguardian.com/international",
-  },
-];
+export default function guardian() {
+  const pageUrl =
+    "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day";
+  return fetch(pageUrl)
+    .then((r) => r.text())
+    .then((html) => new JSDOM(html).window.document)
+    .then((document) => document.querySelector("picture"))
+    .then((picture) => {
+      const candidates = [...picture.querySelectorAll("source[srcset]")]
+        .flatMap((source) => source.getAttribute("srcset").split(","))
+        .map((entry) => entry.trim().split(/\s+/))
+        .map(([url, width]) => ({ url, width: parseInt(width, 10) || 0 }))
+        .sort((a, b) => b.width - a.width);
 
-async function fetchFeed(feed) {
-  const response = await fetch(feed.pageUrl);
-  const html = await response.text();
-  const dom = new JSDOM(html);
-  const image = dom.window.document.querySelector("picture img");
-  if (!image) return null;
-  const date = new Date().toISOString().slice(0, 10);
-  const source = feed.source;
-  return {
-    id: `${date}-${source.toLowerCase().replaceAll(" ", "-")}`,
-    source,
-    date,
-    description: image.alt ?? "",
-    pageUrl: feed.pageUrl,
-    imageUrl: image.src,
-  };
-}
-
-export async function fetchPicture() {
-  const results = [];
-  for (const feed of FEEDS) {
-    try {
-      const item = await fetchFeed(feed);
-
-      if (item) results.push(item);
-    } catch (err) {
-      console.error(`${feed.source}:`, err.message);
-    }
-  }
-  return results;
+      return [
+        {
+          source: "Guardian",
+          description: picture.querySelector("img")?.alt ?? "",
+          pageUrl,
+          imageUrl: candidates[0]?.url ?? picture.querySelector("img")?.src,
+        },
+      ];
+    })
+    .catch(() => []);
 }

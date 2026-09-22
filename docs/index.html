@@ -35,12 +35,20 @@
       padding: 0.5em;
       margin: 1em;
     }
-    #gallery {
-      columns: 240px;
-      column-gap: 1em;
+    #gallery details {
+      width: calc((100% - 2em) / 3);
+    }
+    @media (max-width: 900px) {
+      #gallery details {
+        width: calc((100% - 1em) / 2);
+      }
+    }
+    @media (max-width: 600px) {
+      #gallery details {
+        width: 100%;
+      }
     }
     #gallery details {
-      display: inline-block;
       background: var(--card);
       margin-bottom: 1em;
       border-radius: 0.5em;
@@ -48,6 +56,10 @@
     }
     #gallery details summary {
       padding: 1em;
+    }
+    #gallery details summary a {
+      color: inherit;
+      text-decoration: none;
     }
     #gallery details p {
       padding: 0em 1em 1em 1em;
@@ -66,13 +78,25 @@
     <div id="gallery"></div>
   </body>
 
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
   <script>
     let items = [];
+    search = document.getElementById("search");
+    gallery = document.getElementById("gallery");
+    let masonry = new Masonry(gallery, {
+      itemSelector: "details",
+      columnWidth: "details",
+      percentPosition: true,
+      gutter: 16,
+    });
+
     fetch("archive.json")
       .then((r) => r.json())
       .then((data) => {
         items = data;
         render(data);
+        masonry.reloadItems();
+        masonry.layout();
       });
 
     function render(data) {
@@ -90,11 +114,19 @@
         .join("");
     }
 
-    document.getElementById("search").addEventListener("input", (e) => {
+    function updateLayout() {
+      if (masonry) masonry.layout();
+    }
+
+    function filter(e) {
       const q = e.target.value.toLowerCase();
       document.querySelectorAll("#gallery details").forEach((el) => {
         el.hidden = !el.textContent.toLowerCase().includes(q);
       });
-    });
+      updateLayout();
+    }
+
+    search.addEventListener("input", filter);
+    gallery.addEventListener("toggle", updateLayout, true);
   </script>
 </html>

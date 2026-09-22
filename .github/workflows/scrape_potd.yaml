@@ -2,7 +2,7 @@ name: scrape_potd
 
 on:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
@@ -23,5 +23,5 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add docs/
-          git diff --staged --quiet || git commit -m "Update POTD"
+          git diff --staged --quiet || git commit -m "bot: $(date +'%Y-%m-%d')"
           git push

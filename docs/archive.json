@@ -1,94 +1,26 @@
 [
   {
-    "id": "2026-09-22-guardian-international",
-    "source": "Guardian International",
-    "date": "2026-09-22",
-    "description": "A portrait of a woman in front of a white arch",
-    "pageUrl": "https://www.theguardian.com/international",
-    "imageUrl": "https://i.guim.co.uk/img/media/28a35ce8758f8766a2e5b21df75f8e40bd438860/448_151_3561_2849/master/3561.jpg?width=98&dpr=1&s=none&crop=1%3A1"
-  },
-  {
-    "id": "2026-09-22-wikimedia",
-    "source": "Wikimedia",
-    "date": "2026-09-22",
-    "description": "Wikimedia Commons",
-    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Beach_of_Cape_Fiolent%2C_Crimea.jpg/1280px-Beach_of_Cape_Fiolent%2C_Crimea.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
-  },
-  {
-    "id": "bing-2026-09-22",
-    "source": "bing",
-    "date": "2026-09-22",
-    "description": "Aerial view of black lava beach, El Golfo, Lanzarote, Canary Islands, Spain (© Westend61/Adobe Stock)",
+    "source": "Bing",
+    "date": "2026-09-21",
+    "description": "Sea otter grooming fur, Monterey Bay, California, United States (© Suzi Eszterhas/Minden Pictures)",
     "pageUrl": "https://www.bing.com",
-    "imageUrl": "https://www.bing.com/th?id=OHR.ElGolfo_EN-GB9192637782_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp"
+    "imageUrl": "https://www.bing.com/th?id=OHR.GroomingOtter_EN-GB9079842121_1920x1080.jpg"
   },
   {
-    "id": "nasa-2026-09-22",
-    "source": "nasa",
-    "date": "2026-09-22",
-    "description": "This shot captured an unexpected silhouette. Which is it?  It isn't the sunspots, the small dark regions caused by concentrated magnetic fields visible around the Sun's bright disk. Sunspots typically last for weeks and were expected, since these spots were seen previously.  It isn’t the International Space Station (ISS), the small dark structure on the middle left.  This is because the featured picture was planned with sub-second timing to record the iconic structure passing before the Sun.  It is the airplane.  Just as this exposure was taking place in June, from Prasek in the Czech Republic, an airplane began its own miniature partial eclipse.  The result is this triply aligned image of our Sun.  The photographer estimates that the chance of any random Sun image containing silhouettes of both a space station and an airplane, from that location, is about 30 million to one.    APOD's main NASA site is moving: From apod.nasa.gov to science.nasa.gov/apod",
-    "pageUrl": "https://apod.nasa.gov/apod/",
-    "imageUrl": "https://apod.nasa.gov/apod/image/2609/PlaneIssSpots_Horalek_960.jpg"
-  },
-  {
-    "id": "smithsonian-natural-world-2026-09-21",
-    "source": "smithsonian-natural-world",
-    "date": "2026-09-21",
-    "description": "A serene sea turtle glides just below the water's surface, illuminated by the warm hues of the setting sun. Captured on film, this moment combines the timeless elegance of nature with the nostalgic beauty of analog photography.",
-    "pageUrl": "https://photocontest.smithsonianmag.com/photocontest/detail/golden-glow-with-the-sea-turtle/",
-    "imageUrl": "https://tf-cmsv2-photocontest-smithsonianmag-prod-approved.s3.amazonaws.com/f6a0ac6d-025f-49b5-b583-c457c10089d2.jpg"
-  },
-  {
-    "id": "smithsonian-travel-2026-09-21",
-    "source": "smithsonian-travel",
-    "date": "2026-09-21",
-    "description": "A storm rolling through Honeymoon Island Florida",
-    "pageUrl": "https://photocontest.smithsonianmag.com/photocontest/detail/stormclouds-over-honeymoon-island-beach/",
-    "imageUrl": "https://tf-cmsv2-photocontest-smithsonianmag-prod-approved.s3.amazonaws.com/bd999eed-dd46-4492-bb8d-d3739142c230.jpg"
-  },
-  {
-    "id": "smithsonian-people-2026-09-21",
-    "source": "smithsonian-people",
-    "date": "2026-09-21",
-    "description": "An introspective moment capturing faith and the beauty of the simplicity within monochrome images.",
-    "pageUrl": "https://photocontest.smithsonianmag.com/photocontest/detail/divine-gaze/",
-    "imageUrl": "https://tf-cmsv2-photocontest-smithsonianmag-prod-approved.s3.amazonaws.com/cd0f32eb-5e84-480e-88c1-cb7699b2e49f.jpg"
-  },
-  {
-    "id": "smithsonian-drone-aerial-2026-09-21",
-    "source": "smithsonian-drone-aerial",
-    "date": "2026-09-21",
-    "description": "This drone photograph looks as if it were painted by nature itself. It depicts the silhouette of a small bird seemingly encased in ice. On the surface of a frozen lake, circular patterns emerge, resembling scattered seeds, while the bird-like shape appears to be pecking at them.",
-    "pageUrl": "https://photocontest.smithsonianmag.com/photocontest/detail/birdy-1/",
-    "imageUrl": "https://tf-cmsv2-photocontest-smithsonianmag-prod-approved.s3.amazonaws.com/d2b65302-f9d7-420e-af57-923573fa4c69.jpg"
-  },
-  {
-    "id": "smithsonian-artistic-2026-09-21",
-    "source": "smithsonian-artistic",
-    "date": "2026-09-21",
-    "description": "Born from the sudden loss of my job, this series is a visual satire of the ",
-    "pageUrl": "https://photocontest.smithsonianmag.com/photocontest/detail/unemployed-project-this-position-has-been-filled/",
-    "imageUrl": "https://tf-cmsv2-photocontest-smithsonianmag-prod-approved.s3.amazonaws.com/7842126b-a27c-41b6-83ad-16eabe40283d.jpg"
-  },
-  {
-    "id": "2026-09-21-guardian-international",
-    "source": "Guardian International",
-    "date": "2026-09-21",
-    "description": "NY: Donald TrumpNEW YORK - AUGUST 1987: Donald Trump, real estate mogul, entrepreneur, and billionare commutes around New York City in his limousine often using this transportation as an office on August 1987 in New York City.  (Photo by Joe McNally/Getty Images)",
-    "pageUrl": "https://www.theguardian.com/international",
-    "imageUrl": "https://i.guim.co.uk/img/media/1bac7667539ff96dc70a624778e0d1963f4305af/274_623_2832_2832/master/2832.jpg?width=98&dpr=1&s=none&crop=1%3A1"
-  },
-  {
-    "id": "2026-09-21-guardian-uk",
-    "source": "Guardian UK",
+    "source": "Guardian",
     "date": "2026-09-21",
     "description": "A young man protects himself from heavy rain and wind triggered by Typhoon Dujuan with an umbrella near Shinjuku station in Tokyo",
     "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
     "imageUrl": "https://i.guim.co.uk/img/media/681c51404fdb372f0e41f51f49ef94d82e53ef6a/0_0_5000_3999/master/5000.png?width=465&dpr=1&s=none&crop=5%3A4"
   },
   {
-    "id": "2026-09-21-national-geographic",
+    "source": "NASA",
+    "date": "2026-09-21",
+    "description": "When does a nebula look like a comet?  In this crowded starfield covering over two degrees within the high-flying constellation of the Swan (Cygnus), the eye is drawn to the Cocoon Nebula.  A compact star forming region, the cosmic Cocoon punctuates a nebula bright in emission and reflection on the lower right, with a long trail of interstellar dust clouds to the left, making the entire complex appear a bit like a comet.  Cataloged as IC 5146, the central bright head of the nebula spans about 10 light years, while the dark dusty tail spans nearly 100 light years.  Both are located about 2,500 light years away.  A bright star near the colorful nebula's center likely supplies power and helps clear out a cavity.  The long dusty filaments of the tail, although dark in this visible light image, hide stars in the process of formation. The featured image was captured in July from Death Valley, California, USA.   APOD's main NASA site is moving: From apod.nasa.gov to science.nasa.gov/apod",
+    "pageUrl": "https://apod.nasa.gov/apod/",
+    "imageUrl": "https://apod.nasa.gov/apod/image/2609/Cocoon_Czerski_3000.jpg"
+  },
+  {
     "source": "National Geographic",
     "date": "2026-09-21",
     "description": "A scabiosa stellata (Lomelosia stellata) grows at Redwood Roots Farm in Bayside, California. The plant’s delicate blossoms quickly fall away, leaving behind distinctive paper-like, geometric seed pods often coveted in gardens and bouquets.",
@@ -96,27 +28,86 @@
     "imageUrl": "https://i.natgeofe.com/n/90bbbc96-223f-43f0-ba12-cd544d533757/scabiosa-stellata-nat-geo.jpg"
   },
   {
-    "id": "2026-09-21-wikimedia",
+    "source": "Smithsonian Artistic",
+    "date": "2026-09-21",
+    "description": "Born from the sudden loss of my job, this series is a visual satire of the ",
+    "pageUrl": "https://photocontest.smithsonianmag.com/photocontest/detail/unemployed-project-this-position-has-been-filled/",
+    "imageUrl": "https://tf-cmsv2-photocontest-smithsonianmag-prod-approved.s3.amazonaws.com/7842126b-a27c-41b6-83ad-16eabe40283d.jpg"
+  },
+  {
+    "source": "Smithsonian Drone-Aerial",
+    "date": "2026-09-21",
+    "description": "This drone photograph looks as if it were painted by nature itself. It depicts the silhouette of a small bird seemingly encased in ice. On the surface of a frozen lake, circular patterns emerge, resembling scattered seeds, while the bird-like shape appears to be pecking at them.",
+    "pageUrl": "https://photocontest.smithsonianmag.com/photocontest/detail/birdy-1/",
+    "imageUrl": "https://tf-cmsv2-photocontest-smithsonianmag-prod-approved.s3.amazonaws.com/d2b65302-f9d7-420e-af57-923573fa4c69.jpg"
+  },
+  {
+    "source": "Smithsonian Natural-World",
+    "date": "2026-09-21",
+    "description": "A serene sea turtle glides just below the water's surface, illuminated by the warm hues of the setting sun. Captured on film, this moment combines the timeless elegance of nature with the nostalgic beauty of analog photography.",
+    "pageUrl": "https://photocontest.smithsonianmag.com/photocontest/detail/golden-glow-with-the-sea-turtle/",
+    "imageUrl": "https://tf-cmsv2-photocontest-smithsonianmag-prod-approved.s3.amazonaws.com/f6a0ac6d-025f-49b5-b583-c457c10089d2.jpg"
+  },
+  {
+    "source": "Smithsonian People",
+    "date": "2026-09-21",
+    "description": "An introspective moment capturing faith and the beauty of the simplicity within monochrome images.",
+    "pageUrl": "https://photocontest.smithsonianmag.com/photocontest/detail/divine-gaze/",
+    "imageUrl": "https://tf-cmsv2-photocontest-smithsonianmag-prod-approved.s3.amazonaws.com/cd0f32eb-5e84-480e-88c1-cb7699b2e49f.jpg"
+  },
+  {
+    "source": "Smithsonian Travel",
+    "date": "2026-09-21",
+    "description": "A storm rolling through Honeymoon Island Florida",
+    "pageUrl": "https://photocontest.smithsonianmag.com/photocontest/detail/stormclouds-over-honeymoon-island-beach/",
+    "imageUrl": "https://tf-cmsv2-photocontest-smithsonianmag-prod-approved.s3.amazonaws.com/bd999eed-dd46-4492-bb8d-d3739142c230.jpg"
+  },
+  {
     "source": "Wikimedia",
     "date": "2026-09-21",
-    "description": "Wikimedia Commons",
+    "description": "Chief Joseph of the Wallowa band of Nez Perce, an American Native American tribe in the Pacific Northwest",
     "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Chief_Joseph_by_Edward_Sheriff_Curtis.jpg/960px-Chief_Joseph_by_Edward_Sheriff_Curtis.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/59/Chief_Joseph_by_Edward_Sheriff_Curtis.jpg"
   },
   {
-    "id": "bing-2026-09-21",
-    "source": "bing",
-    "date": "2026-09-21",
-    "description": "Sea otter grooming fur, Monterey Bay, California, United States (© Suzi Eszterhas/Minden Pictures)",
+    "source": "Bing",
+    "date": "2026-09-22",
+    "description": "Aerial view of black lava beach, El Golfo, Lanzarote, Canary Islands, Spain (© Westend61/Adobe Stock)",
     "pageUrl": "https://www.bing.com",
-    "imageUrl": "https://www.bing.com/th?id=OHR.GroomingOtter_EN-GB9079842121_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp"
+    "imageUrl": "https://www.bing.com/th?id=OHR.ElGolfo_EN-GB9192637782_1920x1080.jpg"
   },
   {
-    "id": "nasa-2026-09-21",
-    "source": "nasa",
-    "date": "2026-09-21",
-    "description": "When does a nebula look like a comet?  In this crowded starfield covering over two degrees within the high-flying constellation of the Swan (Cygnus), the eye is drawn to the Cocoon Nebula.  A compact star forming region, the cosmic Cocoon punctuates a nebula bright in emission and reflection on the lower right, with a long trail of interstellar dust clouds to the left, making the entire complex appear a bit like a comet.  Cataloged as IC 5146, the central bright head of the nebula spans about 10 light years, while the dark dusty tail spans nearly 100 light years.  Both are located about 2,500 light years away.  A bright star near the colorful nebula's center likely supplies power and helps clear out a cavity.  The long dusty filaments of the tail, although dark in this visible light image, hide stars in the process of formation. The featured image was captured in July from Death Valley, California, USA.   APOD's main NASA site is moving: From apod.nasa.gov to science.nasa.gov/apod",
+    "source": "Guardian",
+    "description": "A diver watches as a turtle swims by",
+    "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
+    "imageUrl": "https://i.guim.co.uk/img/media/fba38ae89cc659d6284c78fff972691c68f368b0/0_0_5000_4000/master/5000.png?width=700&dpr=2&s=none&crop=5%3A4",
+    "date": "2026-09-22"
+  },
+  {
+    "date": "2026-09-22",
+    "source": "NASA",
+    "description": "",
+    "pageUrl": "https://apod.nasa.gov/"
+  },
+  {
+    "source": "NASA",
+    "date": "2026-09-22",
+    "description": "This shot captured an unexpected silhouette. Which is it?  It isn't the sunspots, the small dark regions caused by concentrated magnetic fields visible around the Sun's bright disk. Sunspots typically last for weeks and were expected, since these spots were seen previously.  It isn’t the International Space Station (ISS), the small dark structure on the middle left.  This is because the featured picture was planned with sub-second timing to record the iconic structure passing before the Sun.  It is the airplane.  Just as this exposure was taking place in June, from Prasek in the Czech Republic, an airplane began its own miniature partial eclipse.  The result is this triply aligned image of our Sun.  The photographer estimates that the chance of any random Sun image containing silhouettes of both a space station and an airplane, from that location, is about 30 million to one.    APOD's main NASA site is moving: From apod.nasa.gov to science.nasa.gov/apod",
     "pageUrl": "https://apod.nasa.gov/apod/",
-    "imageUrl": "https://apod.nasa.gov/apod/image/2609/Cocoon_Czerski_1080.jpg"
+    "imageUrl": "https://apod.nasa.gov/apod/image/2609/PlaneIssSpots_Horalek_1500.jpg"
+  },
+  {
+    "source": "National Geographic",
+    "description": "A cow stands during a professional livestock photography session at an annual cattle show in Verden, Germany. Germany is one of Europe's largest milk producers and the second largest producer of beef on the content.",
+    "pageUrl": "https://www.nationalgeographic.com/photography/photo-of-the-day/",
+    "imageUrl": "https://i.natgeofe.com/n/2d58ac67-3a02-4606-bf4f-8918388a17b4/hornless_heritage_nikita_teryoshin_04.jpg",
+    "date": "2026-09-22"
+  },
+  {
+    "source": "Wikimedia",
+    "description": "Beach of Cape Fiolent during the storm at sea. Cape Fiolent in Crimea is of ancient Jurassic origin. Upper Miocene lava and carbonate intrusions on heavily eroded Jurassic foundation.",
+    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/Beach_of_Cape_Fiolent%2C_Crimea.jpg",
+    "date": "2026-09-22"
   }
 ]

@@ -1,12 +1,6 @@
 .*
 /data/
 
-# v1
-*.jpg
-config
-log
-
-# v2
 /node_modules/
 package-lock.json
 pixi.lock
