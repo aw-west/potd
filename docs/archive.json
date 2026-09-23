@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-09-23",
+    "source": "Bing",
+    "description": "Autumn aspen trees near Guardsman Pass, Utah, United States (© Danita Delimont/Shutterstock)",
+    "pageUrl": "https://www.bing.com",
+    "imageUrl": "https://www.bing.com/th?id=OHR.FallAspens_EN-GB9268931266_1920x1080.jpg"
+  },
+  {
+    "date": "2026-09-23",
+    "source": "Smithsonian Wildlife",
+    "description": "A young hippo takes comfort next to its mother.",
+    "pageUrl": "https://photocontest.smithsonianmag.com/photocontest/detail/safety-1/",
+    "imageUrl": "https://tf-cmsv2-photocontest-smithsonianmag-prod-approved.s3.amazonaws.com/00483ff8-afd9-464a-9a46-b7be54b17b61.jpg"
+  },
+  {
+    "date": "2026-09-23",
+    "source": "Wikimedia",
+    "description": "Paraskevi of Iconium church in Kwiatoń, Southern Poland.",
+    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Zabytkowa_cerkiew_wpisana_na_list%C4%99_UNESCO.jpg"
+  },
+  {
     "source": "Bing",
     "date": "2026-09-21",
     "description": "Sea otter grooming fur, Monterey Bay, California, United States (© Suzi Eszterhas/Minden Pictures)",
