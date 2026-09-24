@@ -1,5 +1,40 @@
 [
   {
+    "date": "2026-09-24",
+    "source": "Bing",
+    "description": "Hobbit house at Hobbiton Movie Set, Matamata, New Zealand (© djr-photography/Shutterstock)",
+    "pageUrl": "https://www.bing.com",
+    "imageUrl": "https://www.bing.com/th?id=OHR.TolkienWeek_EN-GB9361035480_1920x1080.jpg"
+  },
+  {
+    "date": "2026-09-24",
+    "source": "Guardian",
+    "description": "Glastonbury Tor's stone tower atop a grassy hill silhouetted against a fiery orange sunrise",
+    "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
+    "imageUrl": "https://i.guim.co.uk/img/media/830892bb52716ff2d32ffd4ed78bf2c5e33e740b/0_0_5000_4000/master/5000.png?width=700&dpr=2&s=none&crop=5%3A4"
+  },
+  {
+    "date": "2026-09-24",
+    "source": "NASA",
+    "description": "A New Lunar Crater: McGetchin",
+    "pageUrl": "https://apod.nasa.gov/",
+    "imageUrl": "https://apod.nasa.gov/apod/image/2609/mcgetchin_after.jpg"
+  },
+  {
+    "date": "2026-09-24",
+    "source": "National Geographic",
+    "description": "Raspberries (Rubus idaeus) grow along a vine on a farm in Sharon, Connecticut. Photographer Landon Speers captured the image at The Fen, a willow and native plant seed farm that works to support Connecticut's local food systems.",
+    "pageUrl": "https://www.nationalgeographic.com/photography/photo-of-the-day/",
+    "imageUrl": "https://i.natgeofe.com/n/d17cf415-71f1-42d6-8b1c-b5c38f40dfe8/UPSTATE_GARDEN_26-1872-2-NG-4X5-SM.jpg"
+  },
+  {
+    "date": "2026-09-24",
+    "source": "Wikimedia",
+    "description": "Female violet-backed starling (Cinnyricinclus leucogaster verreauxi), Damaraland, Namibia.",
+    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Violet-backed_starling_%28Cinnyricinclus_leucogaster_verreauxi%29_female.jpg"
+  },
+  {
     "date": "2026-09-23",
     "source": "Bing",
     "description": "Autumn aspen trees near Guardsman Pass, Utah, United States (© Danita Delimont/Shutterstock)",
