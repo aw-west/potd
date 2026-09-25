@@ -26,11 +26,12 @@ const latest = (
 )
   .flat()
   .filter(Boolean)
-  .map((item) => ({ date, ...item }));
+  .map((item) => ({ date, ...item }))
+  .filter((item) => !imageUrls.has(item.imageUrl));
 latest.sort(
   (a, b) => a.date.localeCompare(b.date) || a.source.localeCompare(b.source),
 );
 
 await fs.writeJson(latestFile, latest, { spaces: 2 });
-archive.unshift(...latest.filter((item) => !imageUrls.has(item.imageUrl)));
+archive.unshift(...latest);
 await fs.writeJson(archiveFile, archive, { spaces: 2 });
