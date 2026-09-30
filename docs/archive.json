@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-09-30",
+    "source": "Bing",
+    "description": "Male bearded reedling, Norfolk, England (© Andrew Sproule/Shutterstock)",
+    "pageUrl": "https://www.bing.com",
+    "imageUrl": "https://www.bing.com/th?id=OHR.BeardReedling_EN-GB9865111388_1920x1080.jpg"
+  },
+  {
+    "date": "2026-09-30",
+    "source": "Guardian",
+    "description": "Pictures of the day trail image.",
+    "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
+    "imageUrl": "https://i.guim.co.uk/img/media/820c2c3f2122db71ddd790e399054fc6cf92ff68/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
+  },
+  {
+    "date": "2026-09-30",
+    "source": "National Geographic",
+    "description": "An Australian wattlebird (Anthochaera) balances on a native Australian grass tree (Xanthorrhoea). These slow-growing perennials produce towering flower spikes that can reach two to four meters tall and drip with nectar, attracting birds, butterflies, and native bees.",
+    "pageUrl": "https://www.nationalgeographic.com/photography/photo-of-the-day/",
+    "imageUrl": "https://i.natgeofe.com/n/409a3e3d-2385-4374-8f5c-1ae4900dedee/BOTY_Raoul_Slater.jpg"
+  },
+  {
+    "date": "2026-09-30",
+    "source": "Wikimedia",
+    "description": "The tower of the Cathedral of Saint Domnius (Split, Croatia) as seen from the Vestibule of Diocletian's Palace.",
+    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/93/Split_Cathedral_Bell_Tower_From_The_Vestibule_-_Split.jpg"
+  },
+  {
     "date": "2026-09-29",
     "source": "Bing",
     "description": "The blue, glacier-fed waters of the Kasilof River, Alaska, United States (© jared lloyd/Getty Images)",
