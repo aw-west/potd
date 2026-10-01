@@ -1,5 +1,40 @@
 [
   {
+    "date": "2026-10-01",
+    "source": "Bing",
+    "description": "Panorama of Parliament Square and Nelson Mandela memorial, London (© ansharphoto/Shutterstock)",
+    "pageUrl": "https://www.bing.com",
+    "imageUrl": "https://www.bing.com/th?id=OHR.BlackHistoryMonthUK2026_EN-GB9938862434_1920x1080.jpg"
+  },
+  {
+    "date": "2026-10-01",
+    "source": "Guardian",
+    "description": "Five women pose for a photo in front of a Maradona mural",
+    "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
+    "imageUrl": "https://i.guim.co.uk/img/media/14525cb6a5217e5117eae0176cb32e2b15391736/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
+  },
+  {
+    "date": "2026-10-01",
+    "source": "NASA",
+    "description": "NASA Science",
+    "pageUrl": "https://apod.nasa.gov/",
+    "imageUrl": "https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png"
+  },
+  {
+    "date": "2026-10-01",
+    "source": "National Geographic",
+    "description": "Gentoo penguins (Pygoscelis papua) dive into Antarctica’s Port Charcot. The species is the fastest underwater-swimming bird on Earth, reaching speeds of up to 22 miles per hour. Photographer Romain Barats captured this raft while snorkeling as the penguins headed out to fish and feed on krill.",
+    "pageUrl": "https://www.nationalgeographic.com/photography/photo-of-the-day/",
+    "imageUrl": "https://i.natgeofe.com/n/bcc2b287-5cbf-4ffc-b3f3-04515926fd68/BOTY_Romain_Barats.jpg"
+  },
+  {
+    "date": "2026-10-01",
+    "source": "Wikimedia",
+    "description": "Choir of the Málaga Cathedral, Andalusia, Spain. The Roman Catholic church was built in the Renaissance architectural tradition between 1528 and 1782 following the plans drawn by Diego de Siloe. The temple is considered one of the Renaissance jewels in all Andalusia.",
+    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Catedral_de_la_Encarnaci%C3%B3n%2C_M%C3%A1laga%2C_Espa%C3%B1a%2C_2023-05-19%2C_DD_37-39_HDR.jpg"
+  },
+  {
     "date": "2026-09-30",
     "source": "Bing",
     "description": "Male bearded reedling, Norfolk, England (© Andrew Sproule/Shutterstock)",
