@@ -1,16 +1,23 @@
 [
   {
-    "date": "2026-10-04",
+    "date": "2026-10-05",
     "source": "Bing",
-    "description": "Artemis I moon rocket at Launch Complex 39B, Kennedy Space Center, Florida, United States (© EVA MARIE UZCATEGUI/Getty Images)",
+    "description": "Adélie penguins, Antarctica (© Otto Plantema/Minden Pictures)",
     "pageUrl": "https://www.bing.com",
-    "imageUrl": "https://www.bing.com/th?id=OHR.ArtemisRocket_EN-GB2659306567_1920x1080.jpg"
+    "imageUrl": "https://www.bing.com/th?id=OHR.AdelieTeacher_EN-GB2790518533_1920x1080.jpg"
   },
   {
-    "date": "2026-10-04",
+    "date": "2026-10-05",
+    "source": "Guardian",
+    "description": "Members of Castellers de Lleida form a Human Tower in Tarragona, Spain",
+    "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
+    "imageUrl": "https://i.guim.co.uk/img/media/e06ce15f2a98893128589193d65afc6eb34e7fef/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
+  },
+  {
+    "date": "2026-10-05",
     "source": "Wikimedia",
-    "description": "Baciccio's Triumph of Franciscan Order depicts the Apostles recommending Francis of Assisi, Anthony of Padua, and other Franciscans to Christ for admittance into Heaven. The fresco is on the vaulted ceiling of the Church of the Twelve Holy Apostles in Rome. This year is the 800th anniversary of Francis of Assisi's death. Today is his feast day.",
+    "description": "Twin mills (front: green mill, 1856; rear: red mill or Schoof’s mill, 1706), Greetsiel, Krummhörn, Lower Saxony, Germany",
     "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/52/Basilica_dei_Santi_Apostoli_%28Rome%29_-_Ceiling.jpg"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Krummh%C3%B6rn%2C_Greetsiel%2C_Windm%C3%BChlen_--_2025_--_9837.jpg"
   }
 ]
