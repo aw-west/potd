@@ -1,23 +1,30 @@
 [
   {
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "source": "Bing",
-    "description": "Adélie penguins, Antarctica (© Otto Plantema/Minden Pictures)",
+    "description": "Danxia landform, Zhangye National Geopark, Gansu, China (© Weiquan Lin/Getty Images)",
     "pageUrl": "https://www.bing.com",
-    "imageUrl": "https://www.bing.com/th?id=OHR.AdelieTeacher_EN-GB2790518533_1920x1080.jpg"
+    "imageUrl": "https://www.bing.com/th?id=OHR.DanxiaLandform_EN-GB2873051697_1920x1080.jpg"
   },
   {
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "source": "Guardian",
-    "description": "Members of Castellers de Lleida form a Human Tower in Tarragona, Spain",
+    "description": "A group of people look up at a castle from a boat on the River Lys, which is almost completely green from duckweed",
     "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
-    "imageUrl": "https://i.guim.co.uk/img/media/e06ce15f2a98893128589193d65afc6eb34e7fef/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
+    "imageUrl": "https://i.guim.co.uk/img/media/b40e70284d22d8fa8f2cac46494fd5dda9485a3d/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
   },
   {
-    "date": "2026-10-05",
+    "date": "2026-10-06",
+    "source": "National Geographic",
+    "description": "A swarm of ermine moth caterpillars engineered this surreal scene along the Waal River in the Netherlands, encasing a willow tree in silk. The caterpillars, captured by photographer Theo Bosboom, used the ghostly covering as a path to the tree’s leaves and as protection from birds and other predators until it was time to transform into moths and fly off.",
+    "pageUrl": "https://www.nationalgeographic.com/photography/photo-of-the-day/",
+    "imageUrl": "https://i.natgeofe.com/n/4da60d8c-21f4-4be0-996b-5ef8b75a1e68/STOCK_MD0926_IF_TB20230607__D0A3447_ORIGINAL.jpg"
+  },
+  {
+    "date": "2026-10-06",
     "source": "Wikimedia",
-    "description": "Twin mills (front: green mill, 1856; rear: red mill or Schoof’s mill, 1706), Greetsiel, Krummhörn, Lower Saxony, Germany",
+    "description": "Berries from a Mahonia aquifolium shrub. Focus stack of 19 photos.",
     "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Krummh%C3%B6rn%2C_Greetsiel%2C_Windm%C3%BChlen_--_2025_--_9837.jpg"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Bessen_van_een_Mahonia_aquifolium._17-08-2025._%28actm.%29_01.jpg"
   }
 ]
