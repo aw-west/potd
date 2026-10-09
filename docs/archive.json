@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-10-09",
+    "source": "Bing",
+    "description": "View of the Sanguinaires Islands from Corsica, France (© Francesco Riccardo Iacomino/Getty Images)",
+    "pageUrl": "https://www.bing.com",
+    "imageUrl": "https://www.bing.com/th?id=OHR.IlesSanguinaires_EN-GB3151593517_1920x1080.jpg"
+  },
+  {
+    "date": "2026-10-09",
+    "source": "Guardian",
+    "description": "Mondrian painting at Christies ",
+    "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
+    "imageUrl": "https://i.guim.co.uk/img/media/d526df39997e03e1fa957e78d9b429b86472ce8c/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
+  },
+  {
+    "date": "2026-10-09",
+    "source": "National Geographic",
+    "description": "A jaguar (Panthera onca) patrols from a tree beneath a star-filled sky in Brazil’s Pantanal region, home to the world’s highest concentration of wild jaguars. As apex predators, these jaguars help regulate populations of prey such as capybaras, caimans, and deer. But their habitat faces growing threats from climate-driven mega fires, which have burned vast portions of the wetland.",
+    "pageUrl": "https://www.nationalgeographic.com/photography/photo-of-the-day/",
+    "imageUrl": "https://i.natgeofe.com/n/bceadc2c-e459-4227-a286-bd6022e0231d/p080_p081_MM8196_140912_124254_ML_REV_Brighter_2-2.jpg"
+  },
+  {
+    "date": "2026-10-09",
+    "source": "Wikimedia",
+    "description": "PO boxes at the historic U.S. Post Office in downtown Chico, California. Today is International World Post Day.",
+    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/PO_boxes_at_the_historic_Chico_Post_Office_%282024%29-L1005460.jpg"
+  },
+  {
     "date": "2026-10-08",
     "source": "Bing",
     "description": "Octopus in defensive posture, Mayotte, Indian Ocean (© Gabriel Barathieu/Minden Pictures)",
