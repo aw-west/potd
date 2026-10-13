@@ -1,23 +1,30 @@
 [
   {
-    "date": "2026-10-12",
+    "date": "2026-10-13",
     "source": "Bing",
-    "description": "Mumbles Pier, Swansea, Wales (© Helen Hotson/Shutterstock)",
+    "description": "Plitvice Lakes National Park, Croatia (© Jan Wlodarczyk/Alamy)",
     "pageUrl": "https://www.bing.com",
-    "imageUrl": "https://www.bing.com/th?id=OHR.MumblesSwansea2026_EN-GB4411542970_1920x1080.jpg"
+    "imageUrl": "https://www.bing.com/th?id=OHR.PlitviceAutumn_EN-GB4470740504_1920x1080.jpg"
   },
   {
-    "date": "2026-10-12",
+    "date": "2026-10-13",
     "source": "Guardian",
-    "description": "A cosplayer dressed as Marge Simpson makes a peace sign as rides an escalator with other subway passengers",
+    "description": "Waves crash into seafront homes that are buckling from the flooding and force of the storm",
     "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
-    "imageUrl": "https://i.guim.co.uk/img/media/113921b50bbdf393e4c33a28afae7384002c35de/0_0_5000_4000/master/5000.png?width=700&dpr=2&s=none&crop=5%3A4"
+    "imageUrl": "https://i.guim.co.uk/img/media/001710ffbaebe8be99a6487b2dc3f569884446af/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
   },
   {
-    "date": "2026-10-12",
+    "date": "2026-10-13",
+    "source": "National Geographic",
+    "description": "Photographer and National Geographic Explorer Carlton Ward Jr. wanted to get close as close as possible to these Florida cracker cattle on the pastures of the state's Buck Island Ranch. Using a wide angle lens, Ward witnessed the ranchers herding the cattle on horseback before dawn. “I was looking for the layering for the story,” he tells National Geographic. “Having the cowboy near the foreground is really important, but having the other cowboys in the background on the other side of the herd kind of helps make it a more immersive experience.” Ward's exhibition, \"The Wild Path: Connecting the Florida We Don’t See,” is currently on display at the Orlando Museum of Art.",
+    "pageUrl": "https://www.nationalgeographic.com/photography/photo-of-the-day/",
+    "imageUrl": "https://i.natgeofe.com/n/7f48f388-7019-403f-a51f-e78a19833e57/Buck_Island_Ranch.jpg"
+  },
+  {
+    "date": "2026-10-13",
     "source": "Wikimedia",
-    "description": "Gotland Grand National 2023. Gotland Grand National has long been considered the world’s largest Enduro competition and was first run in 1984.",
+    "description": "Desert elephant (Loxodonta africana) spraying sand on herself while guarding her sleeping baby. She has covered the baby with a branch. In Damaraland, Namibia",
     "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Gotland_Grand_National_October_2023_12.jpg"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Desert_elephant_%28Loxodonta_africana%29_spraying_sand.jpg"
   }
 ]
