@@ -1,16 +1,30 @@
 [
   {
-    "date": "2026-10-19",
+    "date": "2026-10-20",
     "source": "Bing",
-    "description": "Grand Canal in Venice, Italy (© Juan Romero/Cavan Images)",
+    "description": "Brown-throated sloth, Puerto Viejo de Talamanca, Costa Rica (© Suzi Eszterhas/Minden Pictures)",
     "pageUrl": "https://www.bing.com",
-    "imageUrl": "https://www.bing.com/th?id=OHR.VeniceSunrise_EN-GB5027785704_1920x1080.jpg"
+    "imageUrl": "https://www.bing.com/th?id=OHR.BrownSloth_EN-GB5100181368_1920x1080.jpg"
   },
   {
-    "date": "2026-10-19",
+    "date": "2026-10-20",
     "source": "Guardian",
-    "description": "Gallery trail template",
+    "description": "Two people sit on other people’s shoulders above a crowd of people covered in white foam.",
     "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
-    "imageUrl": "https://i.guim.co.uk/img/media/52cba869ac2ea7e7a6aec18edaee94bae6e8c76e/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
+    "imageUrl": "https://i.guim.co.uk/img/media/54d02ec22544bb00e5a4b63708b57501c0b0638a/0_0_5000_4000/master/5000.png?width=700&dpr=2&s=none&crop=5%3A4"
+  },
+  {
+    "date": "2026-10-20",
+    "source": "National Geographic",
+    "description": "Two voters mark ballots during elections for the Tibetan government-in-exile at a polling station. The preliminary round of the 2026 elections for Sikyong, or political leader, and the Tibetan Parliament-in-Exile took place across more than 30 countries, with voting centered in Dharamshala, India.",
+    "pageUrl": "https://www.nationalgeographic.com/photography/photo-of-the-day/",
+    "imageUrl": "https://i.natgeofe.com/n/74ec9f90-c365-4889-9281-95d41691b377/YSZ_9827.jpg"
+  },
+  {
+    "date": "2026-10-20",
+    "source": "Wikimedia",
+    "description": "Cap with curled gills of a  Laccaria laccata (deceiver, lackluster laccaria) Focus stack of 13 photos.",
+    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Gewone_fopzwam_%28Laccaria_laccata%29._Locatie%2C_Paddenstoelenreservaat._14-10-2025._%28d.j.b%29.jpg"
   }
 ]
