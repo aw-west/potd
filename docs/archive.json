@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-10-23",
+    "source": "Bing",
+    "description": "Two grey wolves, Yellowstone National Park, Wyoming, United States (© John Morrison/Getty Images)",
+    "pageUrl": "https://www.bing.com",
+    "imageUrl": "https://www.bing.com/th?id=OHR.YellowstoneWolves_EN-GB5342942021_1920x1080.jpg"
+  },
+  {
+    "date": "2026-10-23",
+    "source": "Guardian",
+    "description": "A soldier stands guard is a passageway next to a large mural of a brightly coloured bird",
+    "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
+    "imageUrl": "https://i.guim.co.uk/img/media/2d68a9d990ba86bdb377621f452e3b15ef8257b7/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
+  },
+  {
+    "date": "2026-10-23",
+    "source": "National Geographic",
+    "description": "Forests were once found in abundance across Maryland's Eastern Shore. But due to its flat landscape, the area has been vulnerable to the effects of sea-level rise. The salinity of the soil has caused forests to massively decline, leaving behind \"ghost forests\" that are now ubiquitous across the Eastern Shore. Photographer Yazan Aboushi says his image captures the \"haunting stalks that remain of what was once a thriving forest, now transitioning into marsh at Blackwater National Wildlife Refuge.\"",
+    "pageUrl": "https://www.nationalgeographic.com/photography/photo-of-the-day/",
+    "imageUrl": "https://i.natgeofe.com/n/243e41fa-12fa-479a-8d6d-20796171b81d/2.jpg"
+  },
+  {
+    "date": "2026-10-23",
+    "source": "Wikimedia",
+    "description": "Vodno Telecommunication Tower under construction in Skopje, North Macedonia. Today is the Day of the Macedonian Revolutionary Struggle, a national holiday in North Macedonia celebrated on the occasion of the formation of the Internal Macedonian Revolutionary Organization.",
+    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Vodno_Telecommunication_Tower.jpg"
+  },
+  {
     "date": "2026-10-22",
     "source": "Bing",
     "description": "Autumn in Naejangsan National Park, South Korea (© Twenty47studio/Getty Images)",
