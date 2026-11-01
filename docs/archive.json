@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-11-01",
+    "source": "Bing",
+    "description": "Black Forest, Baden-Württemberg, Germany (© Britus/Getty Images)",
+    "pageUrl": "https://www.bing.com",
+    "imageUrl": "https://www.bing.com/th?id=OHR.SchwarzwaldAutumn_EN-GB3893624438_1920x1080.jpg"
+  },
+  {
+    "date": "2026-11-01",
+    "source": "Guardian",
+    "description": "Maria Corina Machado stands in a car reaching toward a dense crowd waving phones and a flag at night",
+    "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
+    "imageUrl": "https://i.guim.co.uk/img/media/ef701b244eb548c74ed8c12a8b44a0a2ebc2016a/410_0_5876_4703/master/5876.jpg?width=460&dpr=2&s=none&crop=5%3A4"
+  },
+  {
+    "date": "2026-11-01",
+    "source": "Wikimedia",
+    "description": "The twelve stained-glass windows of the Església Santa Margalida (Santa Margalida, Majorca, Spain) depicting twelve saints. Today is All Saints' Day.",
+    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Esgl%C3%A9sia_Santa_Margalida_-_Santa_Margalida_-_Mallorca_-_stained-glass_windows.jpg"
+  },
+  {
     "date": "2026-10-31",
     "source": "Bing",
     "description": "St Bartholomew's Cathedral in Frankfurt, Germany (© AlxeyPnferov/Getty Images)",
