@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-11-02",
+    "source": "Bing",
+    "description": "Polar bear and cubs by Hudson Bay, Manitoba, Canada (© Danita Delimont/Adobe Stock)",
+    "pageUrl": "https://www.bing.com",
+    "imageUrl": "https://www.bing.com/th?id=OHR.HudsonBear_EN-GB3657065728_1920x1080.jpg"
+  },
+  {
+    "date": "2026-11-02",
+    "source": "Guardian",
+    "description": "Greenwich Village Halloween parade",
+    "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
+    "imageUrl": "https://i.guim.co.uk/img/media/5ae85e29c766939fe83c03360f7ce45b1ab69713/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
+  },
+  {
+    "date": "2026-11-02",
+    "source": "Wikimedia",
+    "description": "Saint-Charles Cemetery is the largest cemetery in Quebec City. Today is All Souls' Day.",
+    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/15/Snow-covered_Saint-Charles_Cemetery_6.jpg"
+  },
+  {
     "date": "2026-11-01",
     "source": "Bing",
     "description": "Black Forest, Baden-Württemberg, Germany (© Britus/Getty Images)",
