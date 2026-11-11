@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-11-11",
+    "source": "Bing",
+    "description": "A field of poppies (© lloyd-horgan/Getty Images)",
+    "pageUrl": "https://www.bing.com",
+    "imageUrl": "https://www.bing.com/th?id=OHR.PoppiesField_EN-GB3947926925_1920x1080.jpg"
+  },
+  {
+    "date": "2026-11-11",
+    "source": "Guardian",
+    "description": "A giant statue honouring Pope Leo XIV with its arms outstretched and face obscured by a sheet",
+    "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
+    "imageUrl": "https://i.guim.co.uk/img/media/62e516f73d5d715ec397febc1c2837553e5424cc/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
+  },
+  {
+    "date": "2026-11-11",
+    "source": "National Geographic",
+    "description": "Nine-year-old Kerim Efe Umut sits on a ceremonial throne as a family friend pins a gold coin to his sash during his sünnet düğünü, or circumcision celebration, in Istanbul, Turkey. Traditionally, guests give gold coins to mark the occasion, but photographer Emre Çaylak says rising gold prices and economic pressures have led some guests to give Turkish lira instead. The celebration is an important coming-of-age tradition in Turkey, where boys often wear elaborate outfits inspired by Ottoman-era dress as family and friends gather for food, music, and festivities.",
+    "pageUrl": "https://www.nationalgeographic.com/photography/photo-of-the-day/",
+    "imageUrl": "https://i.natgeofe.com/n/925ee488-cd5c-48fd-baf9-762bb3901c24/EC-TR-Gold-98032.jpg"
+  },
+  {
+    "date": "2026-11-11",
+    "source": "Wikimedia",
+    "description": "Panoramic view towards Świnica from Kościelec, Tatra National Park, Zakopane. Today is Poland's National Independence Day.",
+    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/Ko%C5%9Bcielec_view_2.jpg"
+  },
+  {
     "date": "2026-11-10",
     "source": "Bing",
     "description": "Aerial view of Rose Island, The Bahamas (© Abstract Aerial Art/Getty Images)",
