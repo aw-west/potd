@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-11-14",
+    "source": "Bing",
+    "description": "Victoria Harbour, Hong Kong, China (© Juan Romero/Cavan Images)",
+    "pageUrl": "https://www.bing.com",
+    "imageUrl": "https://www.bing.com/th?id=OHR.BlueHK_EN-GB3274323919_1920x1080.jpg"
+  },
+  {
+    "date": "2026-11-14",
+    "source": "Guardian",
+    "description": "A medical worker pushes a patient in a wheelchair along a dark path after a hospital strike in Kyiv",
+    "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
+    "imageUrl": "https://i.guim.co.uk/img/media/d89a8b5e9e25eeb2044f9446cde6bd53126ff624/788_0_4552_3643/master/4552.jpg?width=460&dpr=2&s=none&crop=5%3A4"
+  },
+  {
+    "date": "2026-11-14",
+    "source": "National Geographic",
+    "description": "While biking through White River National Forest near Colorado’s Maroon Bells, Xuebing Du was drawn to the white trunks and golden leaves of an aspen grove at the height of its autumn color. Sunlight filtering through the canopy illuminated the trees as wind moved through the leaves, continually shifting the light and shadows. Rather than photographing the grandeur of the surrounding landscape, Du focused on the intimate experience of being immersed among the trees, where “everything seemed to glow in gold.”",
+    "pageUrl": "https://www.nationalgeographic.com/photography/photo-of-the-day/",
+    "imageUrl": "https://i.natgeofe.com/n/4b8240f0-390a-4b05-8f28-09dd94ba4a2d/Among-the-Golden-Aspens-Xuebing-Du.jpg"
+  },
+  {
+    "date": "2026-11-14",
+    "source": "Wikimedia",
+    "description": "Eastern quoll (Dasyurus viverrinus) fawn morph, Esk Valley, Tasmania, Australia.",
+    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Eastern_quoll_%28Dasyurus_viverrinus%29_fawn_morph_Esk_Valley.jpg"
+  },
+  {
     "date": "2026-11-13",
     "source": "Bing",
     "description": "Abraham Lake in Alberta, Canada (© Guang Cao/Getty Images)",
