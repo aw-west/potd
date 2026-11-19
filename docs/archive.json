@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-11-19",
+    "source": "Bing",
+    "description": "The \"Body of Knowledge\" sculpture by Jaume Plensa at Goethe University in Frankfurt, Germany (© Todamo/Shutterstock)",
+    "pageUrl": "https://www.bing.com",
+    "imageUrl": "https://www.bing.com/th?id=OHR.KnowledgeSculpture_EN-GB1364284090_1920x1080.jpg"
+  },
+  {
+    "date": "2026-11-19",
+    "source": "Guardian",
+    "description": "Gallery trail template copy",
+    "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
+    "imageUrl": "https://i.guim.co.uk/img/media/5782b4b4d3fce832dbccf628d4a5f3cf29445861/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
+  },
+  {
+    "date": "2026-11-19",
+    "source": "National Geographic",
+    "description": "A chrysanthemum emerges from the darkness in The Indestructible, a series by photographers Angel Albarrán and Anna P. Cabrera, who work together as Albarrán Cabrera. For this image, they applied a cyanotype emulsion over a carbon print, creating an irregular, textured surface that gives the photograph an almost three-dimensional quality. The technique reinforces an idea central to their work: A photograph is not only an image, but a physical object shaped by light, chemistry, and materials.",
+    "pageUrl": "https://www.nationalgeographic.com/photography/photo-of-the-day/",
+    "imageUrl": "https://i.natgeofe.com/n/3e6c7367-c4ee-4a37-bfe9-a5b3254fa851/The-indestructible-34361.jpg"
+  },
+  {
+    "date": "2026-11-19",
+    "source": "Wikimedia",
+    "description": "Eurasian hoopoe (Upupa epops) eating in Keoladeo National Park, India",
+    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e7/008_Eurasian_hoopoe_eating_in_Keoladeo_National_Park_Photo_by_Giles_Laurent.jpg"
+  },
+  {
     "date": "2026-11-18",
     "source": "Bing",
     "description": "Pair of barn owls (© Zahoor Salmi/Getty Images)",
