@@ -1,23 +1,30 @@
 [
   {
-    "date": "2026-11-23",
+    "date": "2026-11-24",
     "source": "Bing",
-    "description": "Fiddlehead fern (© Reza Saputra/Getty Images)",
+    "description": "Red squirrel in Cairngorms National Park, Highlands, Scotland (© Scotland: The Big Picture/Minden Pictures)",
     "pageUrl": "https://www.bing.com",
-    "imageUrl": "https://www.bing.com/th?id=OHR.FibonacciFern_EN-GB6785963710_1920x1080.jpg"
+    "imageUrl": "https://www.bing.com/th?id=OHR.CairngormsSquirrel_EN-GB7505295031_1920x1080.jpg"
   },
   {
-    "date": "2026-11-23",
+    "date": "2026-11-24",
     "source": "Guardian",
-    "description": "Aztec dancers in feathered headdresses lead a procession honouring Dolores Huerta",
+    "description": "A crowd gathers around a giant statue of Cristiano Ronaldo in red, arms outstretched, shouting",
     "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
-    "imageUrl": "https://i.guim.co.uk/img/media/dcabe1470ba0ffeae87bab157c2908891272ffe2/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
+    "imageUrl": "https://i.guim.co.uk/img/media/c6bfa26cae22800a6d038cf76a3b324613b2bd25/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
   },
   {
-    "date": "2026-11-23",
+    "date": "2026-11-24",
+    "source": "National Geographic",
+    "description": "Artisanal gold miners walk around a mining site near the Democratic Republic of Congo's Garamba National Park. Gold mining is illegal in and around the national park, as it creates significant ecological pressures and environmental damage, but government interventions often fall short. This image is featured in photographer Léonard Pongo's latest book, Frontier: Garamba National Park, which highlights the many ways in which conservation and violence intersect.",
+    "pageUrl": "https://www.nationalgeographic.com/photography/photo-of-the-day/",
+    "imageUrl": "https://i.natgeofe.com/n/c4ea5cf2-58a3-4ba4-8d15-bb24d84022fb/Leonard-Pongo_Frontier-Garamba-National-Park-10.jpg"
+  },
+  {
+    "date": "2026-11-24",
     "source": "Wikimedia",
-    "description": "View of Pointe Saint-Mathieu with the lighthouse (center), semaphore building (left), Chapel of Saint-Jean de Plougonvelin (right), and the ruins of the Abbey of Saint-Mathieu de Fine-Terre. Plougonvelin, Finistère, France",
+    "description": "Panorama of the new section of Taza, view from the southwest, looking down from the old city, Fez-Meknes, Morocco",
     "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Pointe_Saint_Mathieu_-_Phare.jpg"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/South_Panorama_Taza_Morocco_Nov25_A7CR_09655-62_PanoC.jpg"
   }
 ]
