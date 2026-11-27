@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-11-27",
+    "source": "Bing",
+    "description": "Butte at sunset, Face Canyon, Lake Powell, Utah, USA (© Jeff Foott/Minden)",
+    "pageUrl": "https://www.bing.com",
+    "imageUrl": "https://www.bing.com/th?id=OHR.FaceCanyon_EN-GB5580459617_1920x1080.jpg"
+  },
+  {
+    "date": "2026-11-27",
+    "source": "Guardian",
+    "description": "A meerkat pup ",
+    "pageUrl": "https://www.theguardian.com/news/series/ten-best-photographs-of-the-day",
+    "imageUrl": "https://i.guim.co.uk/img/media/f86a95e1b0f941584d8b34072173b35fc3119dea/0_0_3250_2600/master/3250.png?width=700&dpr=2&s=none&crop=5%3A4"
+  },
+  {
+    "date": "2026-11-27",
+    "source": "National Geographic",
+    "description": "During an ice climbing expedition near Hoffellsjökull Glacier in Iceland, photographer Josef Wittibschlager came across an iceberg that revealed a maze of naturally sculpted tunnels. \"Sunlight filtered through the translucent walls, revealing a hidden world shaped by water, time, and temperature\" he says. These ice tunnels are constantly changing with the seasons, and Wittibschlager refers to them as a \"fleeting natural masterpiece.\"",
+    "pageUrl": "https://www.nationalgeographic.com/photography/photo-of-the-day/",
+    "imageUrl": "https://i.natgeofe.com/n/f3c45ec2-ee4c-4ce5-a16e-dd88f9947118/Iceland_02.jpg"
+  },
+  {
+    "date": "2026-11-27",
+    "source": "Wikimedia",
+    "description": "Magnified 100 times, a drop of liquid crystal was dispensed onto a glass plate and a cover slip placed on top. The liquid crystal spreads out into a uniform film under the weight of the cover slip. The image was captured using a microscope configured for crossed polarised light. The colours come about because liquid crystal is birefringent - it changes the polarisation state of the plane-polarised light passing through it. Now, the sort of labyrinthine pattern is caused by a phase transition. The liquid crystal sample is placed on a heat stage and at a particular temperature called the phase transition temperature, the liquid crystal changes from an opaque state to a transparent state, this is the transition front. The image width is about 2mm.",
+    "pageUrl": "https://commons.wikimedia.org/wiki/Main_Page",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Liquid_Crystal_Phase_Transition.jpg"
+  },
+  {
     "date": "2026-11-26",
     "source": "Bing",
     "description": "Rainbow Falls on the Wailuku River, Hilo, Hawaii, USA (© Peter Unger/Getty Images)",
